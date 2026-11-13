@@ -555,6 +555,121 @@ details.refs td:last-child,details.refs th:last-child{white-space:nowrap}
 details.refs .en{display:block;font-size:11px;color:var(--muted);margin-top:2px}
 details.refs .fit{display:block;margin-top:6px;padding-top:4px;border-top:1px dashed var(--floor)}
 @media (max-width:640px){details.refs td:last-child,details.refs th:last-child{white-space:normal}}
+/* v35 story position strip and process flows */
+.pos{border:2px solid var(--line);background:var(--panel);padding:8px 10px 6px;margin:0 0 12px}
+.posh{font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--accent);margin:0 0 6px}
+.posrow{display:flex;align-items:flex-start;gap:8px;margin:0 0 6px}
+.posl{flex:0 0 64px;font-size:11px;color:var(--muted);padding-top:8px}
+.posics{display:flex;flex-wrap:wrap;gap:4px;flex:1;min-width:0}
+.pi{display:flex;flex-direction:column;align-items:center;width:66px;opacity:.28;filter:grayscale(1)}
+.pi img{width:28px;height:28px;image-rendering:pixelated}
+.pi small{font-size:10px;line-height:1.25;text-align:center;color:var(--ink)}
+.pi.on{opacity:1;filter:none}
+.pi.on img{outline:2px solid var(--accent);outline-offset:1px;background:var(--floor)}
+.pi.on small{font-weight:700}
+.poswho,.postxt{font-size:13px;line-height:1.6;margin:4px 0 0}
+.poswho b{display:inline-block;font-size:11px;color:var(--bg);background:var(--ink);padding:0 6px;margin-right:6px}
+.flows{display:block;margin-top:8px}
+.flowh{font-family:var(--f-jp);font-size:14px;margin:10px 0 4px;color:var(--ink)}
+.pflow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:4px 0 8px}
+.pcol{border:2px solid var(--line);background:var(--floor);display:flex;flex-direction:column;min-width:0}
+.phead{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-bottom:2px dashed var(--line);background:var(--panel)}
+.phead img{width:30px;height:30px;image-rendering:pixelated}
+.phead b{font-size:12px}.phead span{font-size:12px;text-align:center}
+.pbody{display:flex;flex-direction:column;gap:4px;padding:6px 4px;align-items:stretch}
+.pgray{font-size:11px;color:var(--muted);line-height:1.4;text-align:center}
+.cchip{appearance:none;font:inherit;font-size:12px;line-height:1.3;border:2px solid var(--line);background:var(--bg);color:var(--ink);padding:3px 4px;cursor:pointer;box-shadow:2px 2px 0 var(--shadow)}
+.cchip:hover,.cchip:focus-visible{border-color:var(--accent);outline:none}
+.cchips{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:4px}
+.dbtn{appearance:none;cursor:pointer;padding:0;font:inherit;box-shadow:3px 3px 0 var(--shadow)}
+.dbtn:hover,.dbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.colintro{border-left:4px solid var(--tcad);background:var(--panel);padding:8px 12px;margin:4px 0 6px}
+.colintro h5{font-family:var(--f-jp);font-size:14px;margin:0 0 4px}
+.colintro p{font-size:13.5px;line-height:1.7;margin:0 0 6px}
+@media (max-width:640px){.pflow{grid-template-columns:repeat(3,minmax(0,1fr))}.posl{flex-basis:auto;width:100%;padding:0}.posrow{flex-wrap:wrap}.pi{width:58px}}
+/* v36 clickable flow boxes */
+.pi.on img{outline:none}
+.chain{margin:6px 0 10px}
+.cflow{display:flex;align-items:stretch;gap:4px}
+.fbox{appearance:none;font:inherit;color:inherit;position:relative;flex:1 1 0;min-width:0;border:3px solid var(--line);background:var(--floor);box-shadow:3px 3px 0 var(--shadow);display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px 8px;text-align:center}
+button.fbox{cursor:pointer;transition:transform .12s}
+button.fbox:hover,button.fbox:focus-visible{transform:translate(-1px,-1px);border-color:var(--c);outline:none}
+.fbox img{width:48px;height:48px;image-rendering:pixelated}
+.fbox b{color:var(--c);font-size:13.5px;font-family:var(--f-jp);line-height:1.3}
+.fbox .fd{font-size:12px;line-height:1.45;color:var(--ink)}
+.fbox.multi{box-shadow:none;border-style:dashed}
+.fnum{position:absolute;left:-3px;top:-3px;width:22px;height:22px;background:var(--c);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.farr{align-self:center;color:var(--muted);font-size:18px;flex:0 0 auto}
+.mhead{display:flex;align-items:flex-start;gap:8px;margin:2px 0 6px}
+.tflow{display:grid;grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:auto auto;gap:8px 4px;margin:6px 0 10px}
+.tflow .lane{grid-column:1;display:flex;gap:8px;align-items:center}
+.tflow .lanein{display:flex;align-items:stretch;gap:4px;flex:1;min-width:0}
+.tflow .lanein .fbox{flex:1 1 0}
+.tflow .join{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;justify-content:center}
+.lanel{flex:0 0 64px;font-size:11px;color:var(--muted)}
+.posics.mini{flex:1 1 0;justify-content:center;align-content:flex-start;align-self:center;height:auto;min-height:64px}
+.posics.mini .pi{width:52px}
+.fembar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;border:2px solid var(--line);background:var(--panel);padding:6px 8px;margin:0 0 8px}
+.station{border:3px solid var(--line);background:var(--panel);padding:8px 10px 10px}
+.stl{font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--accent);margin:0 0 6px}
+.calflow{display:flex;align-items:stretch;gap:6px}
+.cstep{position:relative;flex:1 1 0;min-width:0;border:2px dashed var(--line);padding:14px 8px 8px}
+.cstep .itms{margin:0}
+.cnum{position:absolute;left:-2px;top:-2px;width:22px;height:22px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+@media (max-width:640px){.cflow,.calflow,.tflow .lanein{flex-direction:column}.farr{transform:rotate(90deg)}.tflow{grid-template-columns:1fr}.tflow .join{grid-column:1;grid-row:auto}.tflow .lane{flex-wrap:wrap}}
+/* v37 */
+.cflow{align-items:flex-start}
+.cflow .farr{margin-top:36px}
+.fstep{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.fstep>.fbox{flex:none}
+.fstep>.fd{font-size:12px;line-height:1.5;text-align:center;color:var(--ink)}
+.fstep>.cchips{margin-top:0}
+.itms.eq{display:flex;align-items:stretch;gap:8px}
+.itms.eq .itm.bare{flex:1 1 0;min-width:0;justify-content:center}
+.itm.bare b{text-align:center}
+.calrow .farr{align-self:center}
+@media (max-width:640px){.itms.eq{flex-direction:column}.cflow .farr{margin-top:0}}
+.itms.eq{border:0;background:none;padding:0;box-shadow:none}
+/* v38 Infineon */
+.coclk{appearance:none;font:inherit;color:inherit;text-align:left;display:block;width:100%;border:2px solid var(--line);background:var(--bg);box-shadow:3px 3px 0 var(--shadow);padding:6px 8px;cursor:pointer}
+.coclk:hover,.coclk:focus-visible{border-color:var(--accent);outline:none;transform:translate(-1px,-1px)}
+.coclk .clk{display:inline-block;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:0 4px;vertical-align:2px}
+.co .cohint{color:var(--accent);font-size:11px;margin-top:2px}
+.ifxseg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ifxseg>div{border:2px solid var(--line);background:var(--floor);padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.ifxseg b{font-family:var(--f-jp);font-size:14px}.ifxseg small{font-size:11px;color:var(--muted)}.ifxseg span{font-size:12.5px;line-height:1.5}
+.ifxmap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.ifxmap .bld{gap:8px;padding:10px}
+.ifxr{position:relative;border:2px solid var(--line);background:var(--floor);padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.ifxr b{font-family:var(--f-jp);font-size:13.5px}.ifxr small{font-size:11px;color:var(--muted)}.ifxr>span{font-size:12.5px;line-height:1.5}
+.ifxr.tg{border:3px solid var(--accent);background:var(--bg);padding-top:20px}
+.tgb{position:absolute;left:-3px;top:-3px;background:var(--accent);color:#fff;font-family:var(--f-pix);font-size:9px;padding:3px 6px}
+.tgw{margin:4px 0 0;font-size:12px;line-height:1.55;border-top:2px dashed var(--line);padding-top:4px}
+@media (max-width:760px){.ifxmap,.ifxseg{grid-template-columns:1fr}}
+/* v39 */
+.cflow>.farr{align-self:flex-start;margin-top:38px}
+.coname{appearance:none;font:inherit;font-weight:700;font-size:14px;color:var(--ink);background:var(--bg);border:2px solid var(--line);box-shadow:2px 2px 0 var(--shadow);padding:1px 8px;margin:0 0 3px;cursor:pointer}
+.coname:hover,.coname:focus-visible{border-color:var(--accent);outline:none}
+.tgj{display:block;margin-top:4px;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;border-top:2px dashed var(--line);padding-top:4px}
+.tgj:hover{text-decoration:underline}
+.intbox{border:2px solid var(--line);background:var(--panel);padding:8px 10px}
+.intsvg{width:100%;max-width:640px;display:block;margin:0 auto}
+.intsvg .it{font-size:12px;fill:var(--ink)}.intsvg .il{font-size:12px;font-weight:700;fill:#e5484d}
+.intl{margin:6px 0 0;padding-left:0;list-style:none;font-size:13px;line-height:1.65}
+.pwh{font-family:var(--f-jp);font-size:16px;margin:22px 0 6px}
+.pwcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.pwc{--c:var(--accent)}
+.pwsvg{width:100%;display:block;margin:4px 0 6px}
+.pwsvg text{font-size:10.5px;fill:var(--ink)}
+/* v40 */
+.lead{max-width:none}
+.rolebtn b{font-family:var(--f-jp);font-size:15px;line-height:1.4;letter-spacing:0}
+.skill b,.rolebtn b{text-align:center}
+.en2{font-size:13px;font-weight:600}
+.ifxmap{grid-template-columns:repeat(2,minmax(0,1fr))}
+#pwr{margin-top:14px}
+.mt .coname{margin:0}
+.pwsvg .mh{font-size:12px;font-weight:700}.pwsvg .ml{fill:#e5484d;font-weight:700}.pwsvg .ms{font-size:10px}
 
 </style>
 <div class="wrap">
@@ -578,6 +693,7 @@ details.refs .fit{display:block;margin-top:6px;padding-top:4px;border-top:1px da
       <h2 class="hd">2　產品：晶片裡的電晶體</h2>
       <p class="lead">一顆晶片裡有數十億個電晶體，每一個都是由電壓控制的開關。結構一共換過三種，依序出現。點圖示看原理。</p>
       <div class="prods" id="prods"></div>
+      <div id="pwr"></div>
     </section>
 
     <section class="blk" id="s-how">
@@ -644,7 +760,7 @@ details.refs .fit{display:block;margin-top:6px;padding-top:4px;border-top:1px da
     </section>
 
     <section class="blk" id="s-ask">
-      <h2 class="hd">What and how can I contribute?</h2>
+      <h2 class="hd">我能貢獻什麼？如何貢獻？</h2>
       <div class="three" id="three"></div>
       <div id="rolePanel"></div>
       <div id="refsBox"></div>
@@ -1021,7 +1137,7 @@ var PIC={
 var INDUSTRY=[
  {ic:'design',nm:'IC 設計',sub:'畫出晶片的電路',
   tw:[['聯發科 MediaTek','手機與家電晶片設計']],
-  de:[['Infineon','車用與功率晶片，同時有自己的工廠']],
+  de:[['Infineon','車用、功率晶片與微控制器；自己設計也自己製造（IDM）','ifx']],
   ot:[['NVIDIA（美）','繪圖與 AI 晶片設計'],['Qualcomm（美）','手機晶片設計']]},
  {ic:'mat',nm:'材料',sub:'矽晶圓與化學品',
   tw:[['環球晶圓 GlobalWafers','矽晶圓']],
@@ -1059,7 +1175,7 @@ var INDUSTRY=[
     var rl=document.createElement('div');rl.className='rl';rl.textContent=row[1];g.appendChild(rl);
     INDUSTRY.forEach(function(c){
       var d=document.createElement('div');
-      d.innerHTML=(c[row[0]]||[]).map(function(x){return '<div class="co"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('');
+      d.innerHTML=(c[row[0]]||[]).map(function(x){return x[2]?'<div class="co"><button type="button" class="coname coclk" data-co="'+x[2]+'" aria-label="'+esc(x[0])+'：看公司內部結構">'+esc(x[0])+'</button><span>'+esc(x[1])+'</span></div>':'<div class="co"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('');
       g.appendChild(d);
     });
   });
@@ -1406,9 +1522,9 @@ var SK={
    R(1,1,15,9,'#f1f5f9');R(1,1,15,1,'#334155');R(1,9,15,1,'#334155');R(1,1,1,9,'#334155');R(15,1,1,9,'#334155');R(4,10,2,3,'#f1f5f9');R(5,12,1,1,'#334155');R(4,5,2,2,'#334155');R(8,5,2,2,'#334155');R(12,5,2,2,'#334155')}
 };
 var SKILLS=[
- {k:'sim',t:'Simulation',d:'在高效能運算上進行 DFT 與多體計算'},
- {k:'data',t:'Data Analysis',d:'以 Python 分析並視覺化大量模擬資料'},
- {k:'exp',t:'Experiment & Collaboration',d:'在同步輻射中心進行 ARPES、XAS 量測'}
+ {k:'sim',t:'模擬（Simulation）',d:'在高效能運算上進行 DFT 與多體計算'},
+ {k:'data',t:'數據分析（Data Analysis）',d:'以 Python 分析並視覺化大量模擬資料'},
+ {k:'exp',t:'實驗與協作（Experiment & Collaboration）',d:'在同步輻射中心進行 ARPES、XAS 量測'}
 ];
 (function(){
   var g=$('skills');
@@ -1416,7 +1532,7 @@ var SKILLS=[
     var d=document.createElement('div');d.className='skill';d.dataset.k=s.k;
     var cv=document.createElement('canvas');cv.width=48;cv.height=36;cv.className='px';
     var x=cv.getContext('2d');function R(a,b,w,h,c){x.fillStyle=c;x.fillRect(a,b,w,h)}SK[s.k](R,x);
-    d.appendChild(cv);d.insertAdjacentHTML('beforeend','<b>'+esc(s.t)+'</b><span>'+esc(s.d)+'</span>');g.appendChild(d);
+    d.appendChild(cv);d.insertAdjacentHTML('beforeend','<b>'+tl2(s.t)+'</b><span>'+esc(s.d)+'</span>');g.appendChild(d);
   });
 })();
 
@@ -1442,7 +1558,7 @@ var NEWTOOLS={
   sig:'二次電子與背向散射電子的產率如何隨材料、形貌與入射能量改變。'},
  semimg:{k:'semimg',name:'SEM 影像形成與電壓對比',kw:['影像模擬','表面電位','充電'],
   how:'結合電子與樣品的交互作用、偵測器的收集效率與樣品充電，從元件結構預測 SEM 影像，用來解讀檢測結果或開發檢測演算法。',
-  phys:'影像的亮暗來自射出並被偵測到的電子數，形貌（邊緣效應）、材料與表面電位都會改變亮暗。電壓對比（voltage contrast）：浮接的導體在電子束照射下累積電荷，表面電位改變，影響二次電子能否逃出，因此斷路的接點在影像中變暗或變亮，不必接觸探針即可看出電性缺陷。Data Analysis 的「電子束電壓對比」介紹的是同一個現象，但從量到的影像回推缺陷。',
+  phys:'影像的亮暗來自射出並被偵測到的電子數，形貌（邊緣效應）、材料與表面電位都會改變亮暗。電壓對比（voltage contrast）：浮接的導體在電子束照射下累積電荷，表面電位改變，影響二次電子能否逃出，因此斷路的接點在影像中變暗或變亮，不必接觸探針即可看出電性缺陷。「數據分析」的「電子束電壓對比」介紹的是同一個現象，但從量到的影像回推缺陷。',
   sig:'比較模擬影像與實際影像，判斷缺陷的類型與位置。'},
  eopt:{k:'eopt',name:'電子光學與電子束鏡柱',kw:['電磁透鏡','像差','EMI、MEMS'],
   how:'設計並模擬電子束鏡柱（electron-beam column）：電子源、靜電與磁透鏡、偏轉器與孔徑，目標是在樣品上形成尺寸小且位置穩定的電子束光斑。',
@@ -1485,62 +1601,62 @@ SVG.xrd='<svg viewBox="0 0 360 230"><path class="ln" d="M20 120H180M20 140H180M2
 var SIMROWS=[
  {lab:'TCAD 元件與輸運',tools:[tb('band'),tb('negf'),tb('dev'),procT]},
  {lab:'多物理場模擬',tools:[tb('chamber'),tb('plasma'),NEWTOOLS.fem]},
- {lab:'電子束與量測物理模擬',note:'本類模擬與 Data Analysis 的檢測工具涉及同一類儀器，但分析方向相反：模擬由物理原理預測儀器所量測的訊號（物理 → 訊號）；資料分析則由量測訊號回推問題的成因（訊號 → 原因）。',tools:[NEWTOOLS.eint,NEWTOOLS.semimg,NEWTOOLS.eopt,NEWTOOLS.phml]}
+ {lab:'電子束與量測物理模擬',note:'本類模擬與 「數據分析」的檢測工具涉及同一類儀器，但分析方向相反：模擬由物理原理預測儀器所量測的訊號（物理 → 訊號）；資料分析則由量測訊號回推問題的成因（訊號 → 原因）。',tools:[NEWTOOLS.eint,NEWTOOLS.semimg,NEWTOOLS.eopt,NEWTOOLS.phml]}
 ];
 TOOLS.push(NEWTOOLS.fib,NEWTOOLS.tem,NEWTOOLS.sims,NEWTOOLS.xrd);
 /* v31 reference jobs: zh shown in the Chinese page; en kept for the English version */
-var REFTABS=[['sim','Simulation'],['data','Data Analysis'],['ae','Experiment']];
+var REFTABS=[['sim','模擬'],['data','數據分析'],['ae','實驗與協作']];
 var REFS={
 sim:[
  {co:'TSMC',zh:'TCAD 工程師：元件與輸運模擬',en:'TCAD Engineer – Device and Transport Simulation',sc:null,deg:['博士','PhD'],kw:[
    ['物理知識','Physics','量子物理模擬、能帶結構、載子輸運、載子散射、第一原理/經驗能帶計算、半古典/量子輸運、奈米尺度元件、新材料','quantum physics simulations, band structure, carrier transport, carrier scattering, ab initio/empirical band structure calculation, semi-classical/quantum transport, nanoscale devices, new materials'],
-   ['技術技能','Skills','非平衡格林函數（NEGF）、連續 TCAD 模型開發','NEGF, continuum TCAD model development']],cat:['Simulation','TCAD 元件與輸運']},
+   ['技術技能','Skills','非平衡格林函數（NEGF）、連續 TCAD 模型開發','NEGF, continuum TCAD model development']],cat:['模擬','TCAD 元件與輸運']},
  {co:'TSMC',zh:'TCAD 工程師：應用 TCAD',en:'TCAD Engineer – Application TCAD',sc:null,deg:['碩士/博士','Master/PhD'],kw:[
    ['物理知識','Physics','元件載子輸運 TCAD 模型、先進邏輯元件、奈米製程技術','device carrier transport TCAD models, advanced logic devices, nanometer technology'],
-   ['技術技能','Skills','製程與元件 TCAD 模擬、元件結構與目標規格定義、標準單元功耗/效能分析、製程風險評估、實驗分組','process and device TCAD simulation, device structure and target definition, standard-cell power/performance analysis, process risk assessment, experimental splits']],cat:['Simulation','TCAD 元件與輸運（製程模擬）']},
+   ['技術技能','Skills','製程與元件 TCAD 模擬、元件結構與目標規格定義、標準單元功耗/效能分析、製程風險評估、實驗分組','process and device TCAD simulation, device structure and target definition, standard-cell power/performance analysis, process risk assessment, experimental splits']],cat:['模擬','TCAD 元件與輸運（製程模擬）']},
  {co:'TSMC',zh:'TCAD 工程師：模組與設備建模',en:'TCAD Engineer – Module and Equipment Modeling',sc:null,deg:['博士','PhD'],kw:[
    ['物理知識','Physics','計算流體力學（CFD）、熱、電漿、電磁、光','CFD, thermal, plasma, EM, light'],
-   ['技術技能','Skills','元件與製程模擬、多物理場建模、設備腔體建模、多物理場軟體','device and process simulation, multi-physics modeling, equipment chamber modeling, multi-physics software']],cat:['Simulation','多物理場模擬']},
+   ['技術技能','Skills','元件與製程模擬、多物理場建模、設備腔體建模、多物理場軟體','device and process simulation, multi-physics modeling, equipment chamber modeling, multi-physics software']],cat:['模擬','多物理場模擬']},
  {co:'Applied Materials',zh:'電子光學與多物理場模擬物理學家/工程師',en:'Electron Optics & Multiphysics Simulation Physicist/Engineer',sc:null,deg:['未註明等級','degree, level not specified'],kw:[
    ['物理知識','Physics','電子光學、帶電粒子物理、電磁學、微機電系統（MEMS，靜電與機電）、電磁/機械/熱/聲學行為、電磁干擾（EMI）','electron optics, charged-particle physics, electromagnetics, MEMS (electrostatic, electromechanical), electromagnetic/mechanical/thermal/acoustic behavior, EMI'],
-   ['技術技能','Skills','Opera、CST、COMSOL、Ansys、Python、數值模擬與物理建模、公差/敏感度/製程窗口分析、可製造性設計（DFM）、以實驗驗證模型','Opera, CST, COMSOL, Ansys, Python, numerical simulation and physical modeling, tolerance/sensitivity/process-window analysis, DFM, correlate models with experiments']],cat:['Simulation','多物理場模擬','電子束與量測物理模擬']},
+   ['技術技能','Skills','Opera、CST、COMSOL、Ansys、Python、數值模擬與物理建模、公差/敏感度/製程窗口分析、可製造性設計（DFM）、以實驗驗證模型','Opera, CST, COMSOL, Ansys, Python, numerical simulation and physical modeling, tolerance/sensitivity/process-window analysis, DFM, correlate models with experiments']],cat:['模擬','多物理場模擬','電子束與量測物理模擬']},
  {co:'Applied Materials',zh:'電子束物理學家',en:'eBeam Physicist',sc:[8,20],deg:['碩士/博士','PhD or MSc'],kw:[
    ['物理知識','Physics','電子光學系統、電子光學、高電壓、真空技術、電子源技術','electron optical systems, electron optics, high voltage, vacuum technology, emitter technologies'],
-   ['技術技能','Skills','模擬與數學建模、Python/MATLAB、可行性研究、原型、實驗測試、電子束技術路線圖','simulation and mathematical modelling, Python/MATLAB, feasibility studies, prototypes, experimental testing, eBeam technology roadmap']],cat:['Simulation','電子束與量測物理模擬']},
+   ['技術技能','Skills','模擬與數學建模、Python/MATLAB、可行性研究、原型、實驗測試、電子束技術路線圖','simulation and mathematical modelling, Python/MATLAB, feasibility studies, prototypes, experimental testing, eBeam technology roadmap']],cat:['模擬','電子束與量測物理模擬']},
  {co:'ASML',zh:'物理演算法工程師',en:'Physics Algorithms Engineer',sc:null,deg:['博士','PhD'],kw:[
    ['物理知識','Physics','SEM 成像原理、電子束與物質交互作用、電壓對比','SEM image formation, electron-beam interactions, voltage contrast'],
-   ['技術技能','Skills','以物理為基礎的建模與模擬、模擬框架、電腦視覺與機器學習、AI 驅動的檢測、產品等級軟體','physics-based modeling and simulation, simulation frameworks, computer vision and machine learning, AI-driven inspection, production-quality software']],cat:['Simulation','電子束與量測物理模擬']}
+   ['技術技能','Skills','以物理為基礎的建模與模擬、模擬框架、電腦視覺與機器學習、AI 驅動的檢測、產品等級軟體','physics-based modeling and simulation, simulation frameworks, computer vision and machine learning, AI-driven inspection, production-quality software']],cat:['模擬','電子束與量測物理模擬']}
 ],
 data:[
  {co:'TSMC',zh:'研發工程師：先進技術良率卓越處（ATYED）',en:'RD ATYED Engineer',sc:null,deg:['碩士以上',"Master's degree or higher"],kw:[
    ['物理知識','Physics','光學/電性相關基礎知識、先進製程、缺陷檢測與分析','basic knowledge: optical/electrical related; advanced processes; advanced defect inspection and analysis'],
-   ['工作內容','Tasks','開發有效降低缺陷的檢測方法、分析數據找出技術開發問題的根本原因、以自動化提升工作效率、以基本原理解決技術問題、中英雙語溝通','develop defect inspection methodology for effective defect reduction, analyze data and identify root causes of issues for technology development, enhance working productivity by automation, technical problem-solving based on fundamental principles, bilingual Mandarin and English communication']],cat:['Data Analysis','良率提升與缺陷分析']},
+   ['工作內容','Tasks','開發有效降低缺陷的檢測方法、分析數據找出技術開發問題的根本原因、以自動化提升工作效率、以基本原理解決技術問題、中英雙語溝通','develop defect inspection methodology for effective defect reduction, analyze data and identify root causes of issues for technology development, enhance working productivity by automation, technical problem-solving based on fundamental principles, bilingual Mandarin and English communication']],cat:['數據分析','良率提升與缺陷分析']},
  {co:'KLA',zh:'數學家/物理學家/化學家（製程分析與控制軟體）',en:'Mathematician / Physicist / Chemist',sc:[6,10],deg:['碩士（或學士＋2 年相關經驗）','Master (or Bachelor with 2 years of related experience)'],kw:[
    ['領域知識','Domain','圖案化製程的分析與控制、進階建模與模擬、數據分析、製程控制建模','patterning process analytics and control, advanced modeling simulation, data analytics, process control modeling'],
-   ['工作內容','Tasks','規劃新產品功能並撰寫軟體文件、理解應用領域並引導團隊找出對客戶最有價值的方案、敏捷團隊（最多 8 人）、與應用工程師交流','work out concepts for new product features and document the software, understand the domain and guide the team to the most valuable solution for customers, agile team of up to 8 members, close contact with application engineers']],cat:['Data Analysis（相鄰類別）','偏軟體工程師的職位（軟體產品領域專家），並非數據分析']}
+   ['工作內容','Tasks','規劃新產品功能並撰寫軟體文件、理解應用領域並引導團隊找出對客戶最有價值的方案、敏捷團隊（最多 8 人）、與應用工程師交流','work out concepts for new product features and document the software, understand the domain and guide the team to the most valuable solution for customers, agile team of up to 8 members, close contact with application engineers']],cat:['數據分析（相鄰類別）','偏軟體工程師的職位（軟體產品領域專家），並非數據分析']}
 ],
 ae:[
  {co:'Applied Materials',zh:'粒子束技術物理學家/工程師',en:'Physicist/Engineer, Particle Beam Technology',sc:null,deg:['博士優先','degree, preferably a doctorate'],kw:[
    ['物理知識','Physics','粒子束系統、電子束鏡柱、SEM/TEM、電子光學、（超）高真空、高電壓','particle beam systems, electron-beam columns, SEM/TEM, electron optics, (ultra-)high vacuum, high voltage'],
-   ['技術技能','Skills','實驗室原型測試、蒐集與分析數據、具統計效力的實驗、檢測與量測','prototype tests in the laboratory, collect and analyze data, statistically valid experiments, inspection and metrology']],cat:['Experiment & Collaboration','儀器研發']},
+   ['技術技能','Skills','實驗室原型測試、蒐集與分析數據、具統計效力的實驗、檢測與量測','prototype tests in the laboratory, collect and analyze data, statistically valid experiments, inspection and metrology']],cat:['實驗與協作','儀器研發']},
  {co:'Applied Materials',zh:'研發驗證與認證工程師',en:'R&D Verification & Qualification Engineer',sc:[6.5,23],deg:['學士/碩士（加分：碩士/博士）','Bachelor/Master (preferred: Master/PhD)'],kw:[
    ['物理知識','Physics','電子光學模組、真空系統、高電壓硬體','electron-optical modules, vacuum systems, high-voltage hardware'],
-   ['技術技能','Skills','V 模型、失效模式、影響與關鍵性分析（FMECA）、風險登錄表、驗證與認證測試、無塵室作業規範、可靠度工程','V-Model, FMECA, risk register, verification and qualification tests, cleanroom practices, reliability engineering']],cat:['Experiment & Collaboration','儀器研發']},
+   ['技術技能','Skills','V 模型、失效模式、影響與關鍵性分析（FMECA）、風險登錄表、驗證與認證測試、無塵室作業規範、可靠度工程','V-Model, FMECA, risk register, verification and qualification tests, cleanroom practices, reliability engineering']],cat:['實驗與協作','儀器研發']},
  {co:'SPECS',zh:'研發專案負責人/開發工程師（表面分析）',en:'R&D Project Lead / Development Engineer, Surface Analysis',sc:[6,12],deg:['博士優先','degree in physics or engineering; doctorate an advantage'],kw:[
    ['物理知識','Physics','電子能譜、超高真空技術、表面分析','electron spectroscopy, ultra-high vacuum technology, surface analysis'],
-   ['技術技能','Skills','表面分析系統與元件從概念到量產的開發、原型測試與優化、技術文件、專案執行與監控、跨部門團隊、專案管理','development of surface-analysis systems and components from concept to series production, prototype testing and optimization, technical documentation, project execution and monitoring, cross-department teams, project management']],cat:['Experiment & Collaboration','儀器研發']},
+   ['技術技能','Skills','表面分析系統與元件從概念到量產的開發、原型測試與優化、技術文件、專案執行與監控、跨部門團隊、專案管理','development of surface-analysis systems and components from concept to series production, prototype testing and optimization, technical documentation, project execution and monitoring, cross-department teams, project management']],cat:['實驗與協作','儀器研發']},
  {co:'Heidelberg Instruments',zh:'系統開發工程師（雷射微影）',en:'System Developer, Laser Lithography',sc:[5,10],deg:['碩士/博士優先','degree; Master/PhD an advantage'],kw:[
    ['物理知識','Physics','雷射光學精密系統、光學、機械、電子','precision laser-optical systems, optics, mechanics, electronics'],
-   ['技術技能','Skills','系統層級的機台概念、光學/機械/電子/軟體模組整合、從概念驗證到量產、雷射與透鏡反射鏡的調校、Python','system-level machine concepts, integration of optical, mechanical, electronic and software modules, from proof of concept to production readiness, aligning lasers, lenses and mirrors, Python']],cat:['Experiment & Collaboration','儀器研發']},
+   ['技術技能','Skills','系統層級的機台概念、光學/機械/電子/軟體模組整合、從概念驗證到量產、雷射與透鏡反射鏡的調校、Python','system-level machine concepts, integration of optical, mechanical, electronic and software modules, from proof of concept to production readiness, aligning lasers, lenses and mirrors, Python']],cat:['實驗與協作','儀器研發']},
  {co:'KLA',zh:'應用工程師（半導體產品與客戶事業單位）',en:'Application Engineer, Semi PC',sc:[10.5,17],deg:['碩士','Master'],kw:[
    ['領域知識','Domain','半導體量測設備、光罩檢測、統計學','semiconductor metrology equipment, reticle inspection, statistics'],
-   ['技術技能','Skills','與客戶定義並設置實驗、評估數據以解決客戶問題、統計分析（ANOVA；MATLAB、Python）、將客戶需求轉為開發規格、培訓客戶與現場應用工程師、出貨前驗收與軟體品質測試','define and set up experiments with customers, evaluate data to solve customer problems, statistical analyses such as ANOVA (MATLAB, Python), translate feature requests into requirements, train customers and field application engineers, acceptance and software quality tests before shipment']],cat:['Experiment & Collaboration','應用工程']},
+   ['技術技能','Skills','與客戶定義並設置實驗、評估數據以解決客戶問題、統計分析（ANOVA；MATLAB、Python）、將客戶需求轉為開發規格、培訓客戶與現場應用工程師、出貨前驗收與軟體品質測試','define and set up experiments with customers, evaluate data to solve customer problems, statistical analyses such as ANOVA (MATLAB, Python), translate feature requests into requirements, train customers and field application engineers, acceptance and software quality tests before shipment']],cat:['實驗與協作','應用工程']},
  {co:'Applied Materials',zh:'應用工程師（電子顯微鏡，半導體產業）',en:'Application Engineer, Semiconductor Industry',sc:[5.5,14],deg:['未註明等級','technical or university degree'],kw:[
    ['物理知識','Physics','掃描式電子顯微鏡（SEM）硬體與應用、真空技術、電子、機構、電腦控制','SEM hardware and application, vacuum technology, electronics, mechanics, computer control'],
-   ['技術技能','Skills','新 SEM 應用的開發專案、手冊與應用文件、客戶系統驗收、客戶展示、系統元件與測試流程開發、依規格管控系統性能、alpha/beta 系統故障排除','development projects for new SEM-based applications, manuals and application documentation, customer system acceptance, customer demonstrations, new system components and test processes, control of system performance against specifications, troubleshooting on alpha and beta systems']],cat:['Experiment & Collaboration','應用工程']},
+   ['技術技能','Skills','新 SEM 應用的開發專案、手冊與應用文件、客戶系統驗收、客戶展示、系統元件與測試流程開發、依規格管控系統性能、alpha/beta 系統故障排除','development projects for new SEM-based applications, manuals and application documentation, customer system acceptance, customer demonstrations, new system components and test processes, control of system performance against specifications, troubleshooting on alpha and beta systems']],cat:['實驗與協作','應用工程']},
  {co:'AIXTRON',zh:'量測工程師（應用實驗室）',en:'Metrology Engineer',sc:[6.5,13],deg:['博士優先','degree in natural science or engineering; doctorate desirable'],kw:[
    ['物理知識','Physics','磊晶半導體薄膜的表徵、半導體表徵的物理原理與量測方法','characterization of epitaxially grown semiconductor layers, physical principles and measurement methods of semiconductor characterization'],
-   ['技術技能','Skills','操作量測設備、依量測紀錄文件化並協助製程工程師分析、改進表徵流程、預防性維護與維修、MATLAB/Python','routine with measurement instruments, documentation based on measurement protocols and support of process engineers, improvement of characterization processes, preventive maintenance and repairs, MATLAB/Python']],cat:['Experiment & Collaboration','量測與材料表徵']}
+   ['技術技能','Skills','操作量測設備、依量測紀錄文件化並協助製程工程師分析、改進表徵流程、預防性維護與維修、MATLAB/Python','routine with measurement instruments, documentation based on measurement protocols and support of process engineers, improvement of characterization processes, preventive maintenance and repairs, MATLAB/Python']],cat:['實驗與協作','量測與材料表徵']}
 ]};
 var refTab='sim';
 function fitHtml(sc){
@@ -1565,7 +1681,7 @@ function renderRefs(k){
 }
 
 var R3=[
- {id:'sim',key:'tcad',c:'--tcad',title:'Simulation',ex:'例：TCAD 元件與輸運、多物理場模擬',
+ {id:'sim',key:'tcad',c:'--tcad',title:'模擬（Simulation）',ex:'例：TCAD 元件與輸運、多物理場模擬',
   intro:'半導體產業的模擬職位依模擬對象分成好幾類（完整分類見第一頁的 TCAD）。以下是和我的研究最能銜接的三個方向，分別列出工作內容、所需知識，以及我的對應經驗。',
   cats:[
    {n:'TCAD 元件與輸運',en:'Device and transport simulation',
@@ -1583,24 +1699,24 @@ var R3=[
   rows:SIMROWS,
   used:{sim:'main',data:'also',exp:'also'},gaps:[],
   tools:TOOLS_B,tn:'模擬的方法與工具'},
- {id:'data',key:'yed',c:'--yed',title:'Data Analysis',ex:'例：良率提升，找出缺陷與其成因',
+ {id:'data',key:'yed',c:'--yed',title:'數據分析（Data Analysis）',ex:'例：良率提升，找出缺陷與其成因',
   desc:['看缺陷資料：晶圓圖、檢測機台的缺陷清單，找出異常的空間與製程規律。','換儀器確認：檢測、SEM、電性量測，一步步把問題縮小。','追根因：和製程、整合、設備工程師討論，把範圍縮到某一站。'],
   used:{data:'main',sim:'also',exp:'also'},gaps:['SEM 與電性量測沒有實際操作過（原理可以講）','DOE、SPC 的量產實務','製程流程與機台知識'],
-  tools:TOOLS,tn:'檢測與分析的工具',tnote:'這些工具所量測的訊號，即為 Simulation 中「電子束與量測物理模擬」的預測對象：模擬由物理原理預測訊號，資料分析由訊號回推成因。FIB、TEM、SIMS、XRD 屬於材料與失效分析，當良率追查需要確認缺陷的物理成因時，會將樣品送交分析。',
+  tools:TOOLS,tn:'檢測與分析的工具',tnote:'這些工具所量測的訊號，即為 「模擬」中「電子束與量測物理模擬」的預測對象：模擬由物理原理預測訊號，資料分析由訊號回推成因。',
   project:{t:'Wafer map defect pattern classification',s:'Machine Learning',d:'用公開的晶圓圖資料集，把缺陷圖樣（邊緣環、刮痕、局部群聚等）分類，並用混淆矩陣看哪些圖樣容易被搞混。',tags:['Python','scikit-learn / PyTorch','WM-811K 資料集（使用前先確認授權）'],st:'Planned'}},
- {id:'ae',key:'ae',c:'--ae',title:'Experiment & Collaboration',ex:'例：設備商應用工程師、儀器研發',note:'AE 看重三件事：懂儀器、懂科學、能把兩者講給客戶聽。我對應的是 Experiment & Collaboration：在同步輻射協助過光譜量測，以及把物理講清楚的溝通。沒有操作過客戶端的機台，這是要補的部分。',
+ {id:'ae',key:'ae',c:'--ae',title:'實驗與協作（Experiment & Collaboration）',ex:'例：設備商應用工程師、儀器研發',note:'AE 看重三件事：懂儀器、懂科學、能把兩者講給客戶聽。我對應的是 Experiment & Collaboration：在同步輻射協助過光譜量測，以及把物理講清楚的溝通。沒有操作過客戶端的機台，這是要補的部分。',
   desc:['站在客戶與自家研發之間，處理客戶的問題與新需求。','Application Engineer 偏客戶支援、配方與機台驗收；Application Scientist 偏研究與新應用，博士常見。','職稱多出現在設備、材料、量測公司與部分晶片公司；晶圓代工廠沒有這個職稱。'],
   used:{exp:'main',data:'also',sim:'also'},gaps:['客戶端的實務經驗','晶圓廠機台與製程知識','產業知識與商務溝通'],
   tools:TOOLS_C,tn:'AE 的工作內容'}
 ];
-var SKN={sim:'Simulation',data:'Data Analysis',exp:'Experiment & Collaboration'};
+var SKN={sim:'模擬（Simulation）',data:'數據分析（Data Analysis）',exp:'實驗與協作（Experiment & Collaboration）'};
 (function(){
   var g=$('three');
   R3.forEach(function(r){
     var b=document.createElement('button');b.type='button';b.className='rolebtn';b.dataset.id=r.id;b.setAttribute('aria-pressed','false');b.style.setProperty('--c','var('+r.c+')');
     var say=document.createElement('span');say.className='say';say.textContent='點擊我了解更多';
     var cv=document.createElement('canvas');cv.width=10;cv.height=14;
-    b.appendChild(say);b.appendChild(cv);b.insertAdjacentHTML('beforeend','<b>'+esc(r.title)+'</b><span class="ex">'+esc(r.ex)+'</span>');
+    b.appendChild(say);b.appendChild(cv);b.insertAdjacentHTML('beforeend','<b>'+tl2(r.title)+'</b><span class="ex">'+esc(r.ex)+'</span>');
     b._cv=cv;b._r=r;g.appendChild(b);
     b.addEventListener('click',function(){pickRole(r.id)});
   });
@@ -1656,7 +1772,7 @@ function pickRole(id){
 /* ====================== navigation ====================== */
 var TOCS={
  1:[['s-chain','產業鏈'],['s-tr','產品'],['s-org','公司內部結構'],['s-flow','製程流程']],
- 2:[['s-me','新角色 Yi-Ting'],['s-ask','What and how can I contribute']]
+ 2:[['s-me','新角色 Yi-Ting'],['s-ask','我能貢獻什麼']]
 };
 var NAVIC=[];
 (function(){
@@ -1750,6 +1866,339 @@ try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paintAl
   upd();
 })();
 renderRefs();
+
+/* ====================== v35 story position, process flows, e-beam chain ====================== */
+var ICACHE={};
+function icData(key,fn){if(ICACHE[key])return ICACHE[key];var cv=document.createElement('canvas');cv.width=32;cv.height=32;if(fn)icon(cv,fn);return ICACHE[key]=cv.toDataURL()}
+function stepIc(i){return icData('s'+i,SI[STEPS[i].ic])}
+function methIc(id){var m=METH.filter(function(x){return x.id===id})[0];return icData('m'+id,MI[m.ic])}
+function toolIc(k){return icData('t'+k,ICONS[k])}
+function posHtml(p){
+  if(!p)return '';
+  var s=p.s||[],m=p.m||[];
+  var h='<div class="pos"><div class="posh">在製程中的位置</div><div class="posrow"><span class="posl">製程步驟</span><div class="posics">'
+    +STEPS.map(function(st,i){return '<span class="pi'+(s.indexOf(i)>=0?' on':'')+'"><img alt="" src="'+stepIc(i)+'"><small>S'+i+' '+esc(st.n)+'</small></span>'}).join('')+'</div></div>';
+  if(m.length)h+='<div class="posrow"><span class="posl">量測與檢測</span><div class="posics">'+METH.map(function(x){return '<span class="pi'+(m.indexOf(x.id)>=0?' on':'')+'"><img alt="" src="'+methIc(x.id)+'"><small>'+esc(x.n)+'</small></span>'}).join('')+'</div></div>';
+  return h+'<p class="poswho"><b>誰在做</b>'+esc(p.who)+'</p><p class="postxt">'+esc(p.txt)+'</p></div>';
+}
+function openTool(t,from){
+  var il=t.k==='map'?'<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">'+['edge','scratch','cluster'].map(function(k,i){return '<div style="text-align:center">'+waferMap(k)+'<div class="cap">'+['邊緣環','刮痕線','局部群聚'][i]+'</div></div>'}).join('')+'</div>':SVG[t.k];
+  show('<h3>'+esc(t.name)+'</h3>'+posHtml(t.pos)+'<div class="illu">'+il+'</div><p class="cap" style="margin-bottom:8px">示意圖，簡化過，不代表特定機台。'+(t.cap?esc(t.cap):'')+'</p>'
+   +'<div>'+t.kw.map(function(w){return '<span class="tag2">'+esc(w)+'</span>'}).join('')+'</div>'
+   +(t.pre||'')
+   +'<div class="sec"><h4>用途</h4><p>'+esc(t.how)+'</p></div>'
+   +'<div class="sec"><h4>物理原理</h4>'+(t.physH||'<p>'+esc(t.phys)+'</p>')+'</div>'
+   +(t.extra||'')
+   +'<div class="sec"><h4>訊號判讀</h4><p>'+esc(t.sig)+'</p></div>','--accent',from);
+  $('dlg').style.width='min(760px,100%)';
+}
+/* positions */
+(function(){
+  var TC='晶圓廠研發部門的 TCAD 團隊';
+  var EB='設備商的電子光學與模擬團隊（如 Applied Materials、ASML）';
+  var S15=[1,2,3,4,5];
+  var P={
+   band:{s:S15,who:TC+'（如 TSMC 的元件與輸運模擬）',txt:'TCAD 主要作用在 S1 到 S5 的製程循環。在新世代電晶體量產之前，先算出通道材料的能帶與有效質量，作為元件模擬的輸入參數。'},
+   negf:{s:S15,who:TC+'（如 TSMC 的元件與輸運模擬）',txt:'接續能帶計算，計算奈米尺度電晶體中的電流；結果用來校正連續體 TCAD 的模型參數。'},
+   proc:{s:S15,who:TC+'（如 TSMC 的 Application TCAD）',txt:'在電腦上依序模擬 S1 到 S5 每一步完成後的結構與摻雜分布，產出的結構交給元件模擬。'},
+   dev:{s:S15,who:TC+'（如 TSMC 的 Application TCAD）',txt:'以製程模擬產出的結構，計算電晶體的電流電壓特性，讓研發在實際製作晶圓之前先篩選設計。對應第一頁「產品：晶片裡的電晶體」。'},
+   chamber:{s:[1],who:'設備商的模擬團隊（如 Applied Materials 的電漿與流場計算物理職缺），以及晶圓廠研發的模組與設備建模團隊（如 TSMC TCAD 的 Module and Equipment Modeling）',txt:'模擬沉積腔體內的氣流與溫度分布，目標是讓 S1 薄膜形成的膜厚更均勻。'},
+   plasma:{s:[1,3],who:'設備商的電漿模擬團隊（如 Lam Research、Applied Materials），以及晶圓廠研發的模組與設備建模團隊（如 TSMC TCAD 的 Module and Equipment Modeling）',txt:'模擬蝕刻與沉積腔體內的電漿與電磁場，預測 S3 蝕刻的速率與側壁形狀，以及 S1 電漿沉積的均勻性。'},
+   fem:{s:[],who:'多物理場模擬共用的數值方法',txt:'本卡不對應單一製程步驟，而是腔體模擬與鏡柱模擬背後共同的計算方法；Applied Materials 電子光學職缺所列的 COMSOL、Ansys 皆以有限元素法為核心。'},
+   eopt:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'設計電子束量測與檢測機台時，模擬鏡柱如何將電子束聚成又小又穩定的點。機台完成後送進晶圓廠，用於第一頁量測與檢測列的「電子束量測」與「電子束檢測」。'},
+   eint:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'電子束離開鏡柱、射入晶圓之後，模擬電子在材料內的散射，以及放出多少可被偵測的訊號電子。'},
+   semimg:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'將放出的電子換算成影像，預測缺陷在影像中的樣貌；可協助判讀 「數據分析」中「電子束電壓對比」所量到的影像。'},
+   phml:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'以模擬產生大量答案已知的影像，訓練機台自動判斷缺陷的演算法。'}
+  };
+  SIMROWS.forEach(function(r){r.tools.forEach(function(t){if(P[t.k])t.pos=P[t.k]})});
+  var YE='晶圓廠的良率工程師（YED；先進製程研發端為 ATYED）',FA='材料與失效分析團隊（MA/FA）';
+  var D={
+   map:{s:[1,2,3,4,5,6],m:['opt','ebi','ele'],who:YE,txt:'每一步量測與檢測的資料最後都匯集到晶圓圖；良率工程師從這裡追查良率損失來自哪一步。'},
+   bf:{s:[1,3,5],m:['opt'],who:YE+'；機台由設備商提供（代表性：KLA）',txt:'幾乎每個關鍵步驟之後（沉積後、蝕刻後、CMP 後、清洗後）都會以此類機台掃描整片晶圓，輸出缺陷座標。'},
+   df:{s:[1,3,5],m:['opt'],who:YE+'；機台由設備商提供（代表性：KLA）',txt:'與明場檢測在同一階段使用；只收集散射光，對微粒特別敏感。'},
+   sem:{s:[1,3,5],m:['ebi'],who:YE,txt:'光學檢測找出缺陷座標後，以 SEM 到這些位置拍攝高解析度影像並分類，是良率追查的下一步。關於 SEM 內部產生與聚焦電子束的構造，可參考 「模擬」中的「電子束鏡柱與電子光學」。'},
+   ebi:{s:[3,5],m:['ebi'],who:YE+'；機台由設備商提供（代表性：ASML（HMI）、Applied Materials）',txt:'在蝕刻後、接觸孔與通孔形成後抽樣檢測，找出埋在下方的斷路或短路。以物理原理預測同一現象的模擬，可參考 「模擬」中的「SEM 影像形成與電壓對比」。'},
+   elec:{s:[6],m:['ele'],who:'測試工程師與良率工程師',txt:'在晶圓廠末端量測電流與電壓，確認物理缺陷是否真的造成元件失效；良率工程師再將電性結果與缺陷位置對照。'},
+   fib:{s:[],m:['ma'],who:FA,txt:'不屬於固定的製程步驟：當檢測或電性量測發現異常、需要確認物理成因時，從任何一步送樣。FIB 在指定位置切出剖面，也為 TEM 製作薄片。'},
+   tem:{s:[],m:['ma'],who:FA,txt:'接在 FIB 之後，觀察原子尺度的結構、膜厚與介面，為研發與良率團隊提供直接證據。'},
+   sims:{s:[4],m:['ma'],who:FA,txt:'確認 S4 摻雜後的雜質深度分布是否符合設計。'},
+   xrd:{s:[1],m:['ma'],who:FA,txt:'確認 S1 長出的薄膜（例如磊晶層）的晶體品質與應變。'}
+  };
+  TOOLS.forEach(function(t){if(D[t.k])t.pos=D[t.k]});
+  var AEW='設備、材料與量測公司的應用工程師（AE）';
+  var A={
+   talk:{s:[],who:AEW,txt:'AE 站在晶圓廠與自家研發之間，把客戶遇到的問題轉成工程問題，再把解法帶回給客戶。對應第一頁公司內部結構中，以虛線框表示的「設備商 AE」。'},
+   sem:{s:[2,3,5],m:['ocd','ovl','sem','opt','ebi'],who:'量測與檢測設備商的應用工程師',txt:'AE 必須能解釋機台如何量測、能量到什麼；這些機台即第一頁量測與檢測列的工具。'},
+   support:{s:[1,2,3,4,5],who:'設備商的應用工程師，與晶圓廠的設備工程師（EE）合作',txt:'新機台進廠時，AE 與晶圓廠的設備工程師一同導入與驗收。對應第一頁「晶圓的旅程」下方的設備 EE 列；涉及哪一步，取決於機台種類。'},
+   map:{s:[],who:AEW,txt:'將機台量到的數據整理成客戶能理解的結論；性質與 「數據分析」的晶圓圖分析相同，只是對象為客戶與自家團隊。'},
+   appdev:{s:[],who:'設備商的應用工程師或應用科學家（Application Scientist）',txt:'針對客戶的新需求開發量測方法，成果寫成方法與文件，交給客戶與自家團隊。'}
+  };
+  TOOLS_C.forEach(function(t){if(A[t.k])t.pos=A[t.k]});
+})();
+/* electron-optics card: extra explanations */
+NEWTOOLS.eopt.extra='<div class="sec"><h4>鏡柱的組成</h4><ul>'
+ +'<li><b>電子源（emitter）：</b>發射電子。電子源越小、越亮，越能把電子束聚成小點。</li>'
+ +'<li><b>加速電極：</b>以高電壓把電子加速到所需的能量（示意圖未畫出）。</li><li><b>聚光透鏡（condenser lens）：</b>以磁場或電場初步匯聚電子束，並控制電子束的電流。</li>'
+ +'<li><b>孔徑（aperture）：</b>擋掉偏離中心軸的電子，限制電子束的張角，以減少像差。</li>'
+ +'<li><b>偏轉器（deflector）：</b>以電場或磁場讓電子束轉向，在樣品上逐行掃描。</li>'
+ +'<li><b>物鏡（objective lens）：</b>最後把電子束聚焦在樣品表面，決定最終光點的大小。</li></ul></div>'
+ +'<div class="sec"><h4>模擬在算什麼</h4><ul>'
+ +'<li><b>電磁場與電子軌跡：</b>先算出透鏡與偏轉器產生的電場、磁場分布，再追蹤電子在場中的行進路徑。</li>'
+ +'<li><b>像差（aberration）：</b>球面像差指離中心軸較遠的電子聚焦在不同位置；色像差指能量略有差異的電子聚焦在不同位置。兩者都會使光點變大。</li>'
+ +'<li><b>空間電荷效應（space charge）：</b>電子都帶負電，電流越大、電子越密集，彼此的排斥力越強，光點因此擴大。</li>'
+ +'<li><b>靜電與機電效應：</b>對微小的電極結構施加電壓時，靜電力會使結構微微變形；變形改變電場分布，電場又改變電子軌跡。電與機械互相影響，屬於多物理場耦合（見下方 MEMS）。</li>'
+ +'<li><b>公差與製程窗分析（tolerance and process-window analysis）：</b>零件的尺寸與對位不可能完全精確。模擬這些誤差在一定範圍內變動時，光點的大小與位置會偏移多少，找出仍能符合規格的容許範圍，作為製造零件時的依據。</li></ul></div>'
+ +'<div class="sec"><h4>什麼是 MEMS</h4><p>微機電系統（Micro-Electro-Mechanical Systems, MEMS）是以半導體製程（薄膜沉積、微影、蝕刻）製作的微米尺度結構，同時具有電與機械的功能，例如手機中的加速度計，以及投影機中可轉動的微鏡。</p>'
+ +'<p>在電子束機台中，多束電子束系統需要大量排列緊密的微小靜電透鏡、偏轉器與孔徑陣列，這類元件可以用微加工製作。職缺原文只寫出「MEMS（靜電與機電）」，並未說明具體是哪些元件；此處是依多束系統的一般做法所做的推測。</p>'
+ +'<p>注意：這裡的 MEMS 是機台內部的零件，不是晶片上的結構，因此不對應第一頁的任何製程步驟。</p></div>'
+ +'<div class="sec"><h4>圖中紅字：影響電子束位置的干擾</h4><ul>'
+ +'<li><b>雜散磁場（電磁干擾, Electromagnetic Interference, EMI）：</b>鏡柱外的電源線、馬達等設備產生的磁場會使電子束偏移，因此需要屏蔽並評估其影響。</li>'
+ +'<li><b>機械與聲學振動：</b>地面振動、幫浦運轉或環境中的聲波，會讓鏡柱零件微微晃動，電子束的位置隨之抖動。</li>'
+ +'<li><b>熱膨脹漂移：</b>溫度變化使零件熱脹冷縮，透鏡的位置與間距隨時間緩慢改變，造成電子束漂移。</li></ul>'
+ +'<p>電子束要定位在奈米等級，這些效應必須一起分析；這就是職缺提到「電磁、機械、熱與聲學」耦合分析的原因。</p></div>';
+/* chain renderer */
+function chainHtml(steps,loop){
+  return '<div class="chain"><div class="cflow">'+steps.map(function(s,i){
+    var one=s.tools.length===1;
+    var inner='<span class="fnum">'+(i+1)+'</span><img alt="" src="'+s.ic+'"><b>'+esc(s.t)+'</b>';
+    var box=one?'<button type="button" class="fbox" style="--c:'+s.c+'" data-tk="'+s.tools[0]._id+'">'+inner+'</button>':'<div class="fbox multi" style="--c:'+s.c+'">'+inner+'</div>';
+    var below='<span class="fd">'+esc(s.d)+'</span>'+(one?'':'<span class="cchips">'+s.tools.map(function(t){return '<button type="button" class="cchip" data-tk="'+t._id+'">'+esc(t.name)+'</button>'}).join('')+'</span>');
+    return (i?'<span class="farr" aria-hidden="true">→</span>':'')+'<div class="fstep">'+box+below+'</div>'}).join('')+'</div>'
+    +(loop?'<div class="dloop"><span>'+esc(loop)+'</span></div>':'')+'</div>';
+}
+var TREG=[];
+function reg(t){if(t._id===undefined){t._id=TREG.length;TREG.push(t)}return t}
+function bindTk(box){Array.prototype.forEach.call(box.querySelectorAll('[data-tk]'),function(b){b.addEventListener('click',function(){openTool(TREG[+b.dataset.tk],b)})})}
+function tk(list,k){return reg(list.filter(function(x){return x.k===k})[0])}
+function daFlowHtml(){
+  var T=function(k){return tk(TOOLS,k)};
+  var cols=[
+   [1,['bf','df','xrd'],'膜厚量測（光學量測）'],
+   [2,[],'疊對量測、線寬量測（CD-SEM）'],
+   [3,['bf','df','ebi'],'線寬量測（CD-SEM）'],
+   [4,['sims'],''],
+   [5,['bf','df','ebi'],'剩餘膜厚量測（光學量測）'],
+   [6,['elec'],'']
+  ];
+  var h='<h5 class="flowh">① 製程步驟與對應的檢測</h5><p class="tnote">上方為第一頁的製程步驟，下方為該步驟之後使用的檢測（點名稱看原理）。灰字為第一頁介紹過、但不屬於本頁工具的量測方法。</p><div class="pflow">'
+   +cols.map(function(c){var st=STEPS[c[0]];return '<div class="pcol"><div class="phead"><img alt="" src="'+stepIc(c[0])+'"><b>S'+c[0]+'</b><span>'+esc(st.n)+'</span></div><div class="pbody">'
+     +c[1].map(function(k){var t=T(k);return '<button type="button" class="cchip" data-tk="'+t._id+'">'+esc(t.name)+'</button>'}).join('')
+     +(c[2]?'<span class="pgray">'+esc(c[2])+'</span>':'')+'</div></div>'}).join('')+'</div>';
+  h+='<h5 class="flowh">② 從發現缺陷到確認成因</h5><p class="tnote">良率追查的先後順序。材料與失效分析不屬於固定步驟，在需要確認物理成因時，從任何一步送樣。</p>'
+   +chainHtml([
+    {c:'#1e40af',ic:toolIc('map'),t:'晶圓圖與資料',d:'從全局開始：把各站的缺陷與良率資料畫成晶圓圖，找出異常的空間規律',tools:[T('map')]},
+    {c:'#0d9488',ic:toolIc('bf'),t:'光學缺陷檢測',d:'整片晶圓快速掃描，輸出缺陷座標',tools:[T('bf'),T('df')]},
+    {c:'#16a34a',ic:toolIc('ebi'),t:'電子束檢測',d:'抽樣找出光學看不到的電性缺陷',tools:[T('ebi')]},
+    {c:'#d97706',ic:toolIc('sem'),t:'SEM 缺陷檢視',d:'到缺陷座標拍攝高解析度影像並分類',tools:[T('sem')]},
+    {c:'#7c3aed',ic:toolIc('elec'),t:'電性量測',d:'確認缺陷是否真的造成元件失效',tools:[T('elec')]},
+    {c:'#e5484d',ic:methIc('ma'),t:'材料與失效分析',d:'需要確認物理成因時送樣',tools:[T('fib'),T('tem'),T('sims'),T('xrd')],sep:''}
+   ],'↺ 追到成因後，與製程、整合、設備工程師討論修正，再以新的檢測資料確認是否改善');
+  return h+interHtml();
+}
+function aeFlowHtml(){
+  var T=function(k){return tk(TOOLS_C,k)};
+  return chainHtml([
+   {c:'#1e40af',ic:toolIc('talk'),t:'客戶介面',d:'了解客戶的問題與需求',tools:[T('talk')]},
+   {c:'#0d9488',ic:toolIc('sem'),t:'檢測與量測原理',d:'理解機台如何量測、能量到什麼',tools:[T('sem')]},
+   {c:'#16a34a',ic:toolIc('support'),t:'現場支援與驗收',d:'重現問題、調整參數、確認達到規格',tools:[T('support')]},
+   {c:'#d97706',ic:toolIc('map'),t:'資料分析與報告',d:'把數據整理成客戶能理解的結論',tools:[T('map')]},
+   {c:'#7c3aed',ic:toolIc('appdev'),t:'應用開發',d:'針對新需求開發量測方法與文件',tools:[T('appdev')]}
+  ],'↺ 客戶提出新需求時，再回到客戶介面');
+}
+function methHead(ids,label){
+  return '<div class="mhead"><span class="posl">'+esc(label)+'</span><div class="posics">'+METH.map(function(x){return '<span class="pi'+(ids.indexOf(x.id)>=0?' on':'')+'"><img alt="" src="'+methIc(x.id)+'"><small>'+esc(x.n)+'</small></span>'}).join('')+'</div></div>';
+}
+function ebFlowHtml(){
+  var N=NEWTOOLS;
+  return methHead(['sem','ebi'],'對應的量測與檢測')
+   +'<p class="tnote">以下四張卡依電子的行進順序排列，各自模擬這條路徑上的一段（點卡片看原理）：</p>'
+   +chainHtml([
+    {c:'#1e40af',ic:toolIc('eopt'),t:'電子束鏡柱與電子光學',d:'鏡柱把電子束聚成又小又穩定的點',tools:[reg(N.eopt)]},
+    {c:'#0d9488',ic:toolIc('eint'),t:'電子與樣品的交互作用',d:'電子射入晶圓後散射，放出訊號電子',tools:[reg(N.eint)]},
+    {c:'#d97706',ic:toolIc('semimg'),t:'SEM 影像形成與電壓對比',d:'訊號電子換算成影像',tools:[reg(N.semimg)]},
+    {c:'#7c3aed',ic:toolIc('phml'),t:'物理模擬結合機器學習',d:'演算法從影像判斷缺陷',tools:[reg(N.phml)]}
+   ],null);
+}
+function simTool(k){var t=null;SIMROWS.forEach(function(r){r.tools.forEach(function(x){if(x.k===k)t=x})});return reg(t)}
+function fbtn(t,c,d){return '<button type="button" class="fbox" style="--c:'+c+'" data-tk="'+t._id+'"><img alt="" src="'+toolIc(t.k)+'"><b>'+esc(t.name)+'</b><span class="fd">'+esc(d)+'</span></button>'}
+function tcadFlowHtml(){
+  var S15=[1,2,3,4,5].map(function(i){return '<span class="pi on"><img alt="" src="'+stepIc(i)+'"><small>S'+i+' '+esc(STEPS[i].n)+'</small></span>'}).join('');
+  return '<p class="tnote">TCAD 在實際製作晶圓之前，先以電腦預測電晶體的特性。元件模擬需要兩種輸入：元件的結構，以及材料的參數（點卡片看原理）。</p>'
+   +'<div class="tflow"><div class="lane"><span class="lanel">元件結構</span><div class="lanein"><div class="posics mini">'+S15+'</div><span class="farr">→</span>'
+   +fbtn(simTool('proc'),'#0d9488','依序模擬 S1–S5，得到結構與摻雜分布')+'<span class="farr">→</span></div></div>'
+   +'<div class="lane"><span class="lanel">材料參數</span><div class="lanein">'
+   +fbtn(simTool('band'),'#1e40af','算出能帶與有效質量')+'<span class="farr">→</span>'
+   +fbtn(simTool('negf'),'#7c3aed','計算奈米尺度的電流，校正模型參數')+'<span class="farr">→</span></div></div>'
+   +'<div class="join">'+fbtn(simTool('dev'),'#d97706','結合結構與參數，計算電流電壓特性')+'<p class="tnote" style="margin:6px 0 0">輸出：電晶體的特性，供研發篩選設計（對應第一頁「產品：晶片裡的電晶體」）</p></div></div>';
+}
+function mpFlowHtml(){
+  var ch=simTool('chamber'),pl=simTool('plasma'),fe=simTool('fem');
+  var cols=[[1,[ch,pl],''],[2,[],'計算微影（OPC，見第一頁 S2）'],[3,[pl],''],[4,[],'—'],[5,[],'—']];
+  return '<p class="tnote">多物理場模擬的對象是製程設備的腔體：腔體內的氣流、溫度與電漿決定了薄膜與蝕刻的結果。上方為第一頁的製程步驟，下方為對應的模擬（點名稱看原理）。</p><div class="pflow" style="grid-template-columns:repeat(5,minmax(0,1fr))">'
+   +cols.map(function(c){var st=STEPS[c[0]];return '<div class="pcol"><div class="phead"><img alt="" src="'+stepIc(c[0])+'"><b>S'+c[0]+'</b><span>'+esc(st.n)+'</span></div><div class="pbody">'
+     +c[1].map(function(t){return '<button type="button" class="cchip" data-tk="'+t._id+'">'+esc(t.name)+'</button>'}).join('')
+     +(c[2]?'<span class="pgray">'+esc(c[2])+'</span>':'')+'</div></div>'}).join('')+'</div>'
+   +'<div class="fembar"><span class="lanel">共用的數值方法</span><button type="button" class="cchip" data-tk="'+fe._id+'">'+esc(fe.name)+'</button><span class="pgray">以上模擬，以及電子束鏡柱的模擬，多以有限元素法求解</span></div>';
+}
+var _pickRole=pickRole;
+pickRole=function(id){
+  var before=curRole;_pickRole(id);if(before===id)return;
+  var p=$('rolePanel');
+  if(id==='data'){var b=p.querySelector('#tl2');if(b){b.className='flows';b.innerHTML=daFlowHtml();bindTk(b)}}
+  if(id==='ae'){var b2=p.querySelector('#tl2');if(b2){b2.className='flows';b2.innerHTML=aeFlowHtml();bindTk(b2)}}
+  if(id==='sim'){[['#tr0',tcadFlowHtml],['#tr1',mpFlowHtml],['#tr2',ebFlowHtml]].forEach(function(q){var b3=p.querySelector(q[0]);if(b3){b3.className='flows';b3.innerHTML=q[1]();bindTk(b3)}})}
+};
+
+/* v36 merge column intro into the electron-optics card */
+(function(e){
+  e.name='電子束鏡柱與電子光學';
+  e.cap='鏡柱的作用類似光學顯微鏡的鏡筒：光學顯微鏡以玻璃透鏡聚焦光線，鏡柱則以磁場或電場使電子偏轉、匯聚。';
+  e.pre='<div class="sec"><h4>什麼是電子束鏡柱</h4><p>電子束鏡柱（electron-beam column）是電子束機台中產生、加速、聚焦並導引電子束的直立筒狀結構，因外形為一根垂直的圓柱而得名。電子遇到氣體分子會散射，因此整根鏡柱必須維持真空；鏡柱最下方是放置晶圓的樣品室。「數據分析」中「SEM 缺陷檢視」示意圖裡由電子槍到物鏡的部分，即為鏡柱。</p></div>';
+  e.phys='電子光學（electron optics）以電場與磁場聚焦電子，類比光學中的透鏡；光斑大小受像差（球差、色差）與電子源大小限制。電子束要定位到奈米等級，因此還必須分析各種干擾（見下方「圖中紅字」）；部分系統使用以微機電系統（MEMS）製作的微小靜電元件（見下方「什麼是 MEMS」）。';
+})(NEWTOOLS.eopt);
+
+/* ====================== v38 Infineon company structure ====================== */
+var IFXJOBS={
+ defect:['Engineer Defect Engineering','Dresden','https://jobs.infineon.com/careers/job/563808972195430?hl=de'],
+ integ:['Engineer Process Integration（功率 MOSFET）','Dresden','https://jobs.infineon.com/careers/job/563808972253234?hl=de'],
+ qual:['Quality Engineer for Product Reliability','Budapest','https://jobs.infineon.com/careers/job/563808972316226?domain=infineon.com'],
+ dev:['Staff Engineer Device Analysis','Dresden','https://jobs.infineon.com/careers/job/563808971981111'],
+ rnd:['Senior Engineer R&D（功率模組）','Warstein','https://jobs.infineon.com/careers/job/563808971883449?hl=de']
+};
+var IFX={
+ segs:[['車用','Automotive, ATV','車用微控制器、智慧功率元件、車用乙太網路'],['功率系統','Power Systems, PS','AI 資料中心電源、工業自動化、電網與再生能源、電動車充電'],['邊緣系統','Edge Systems, ES','物聯網、連接與感測器']],
+ cols:[
+  {h:'FAB LINE',s:'量產',note:'前段晶圓廠製作晶片（例如 Dresden 的智慧功率晶圓廠），後段工廠負責封裝與測試。',roles:[
+   {n:'品質與可靠度工程師',e:'Quality Managers/Engineers',o:'Quality & Excellence',d:'從產品構想到量產放行，制定新世代產品的驗證計畫並執行可靠度測試，確保產品進入量產時符合品質要求。',j:'qual'},
+   {n:'缺陷工程',e:'Defect Engineering',d:'以數據分析與檢測技術找出製程弱點與失效根因，並沿著晶片生產流程定義檢測步驟；工作橫跨開發專案與量產。相當於第一頁的良率工程師（YED/ATYED）。',j:'defect'},
+   {n:'製程工程師',e:'Process Engineers',o:'Manufacturing & Operations',d:'持續改善量產製程，相當於第一頁的製程工程師（PE）。'},
+   {n:'設備與維護工程師',e:'Maintenance & Equipment Engineers',o:'Manufacturing & Operations',d:'確保設備順利運作，並因應產能需求調整，相當於第一頁的設備工程師（EE）。'}]},
+  {h:'RD OFFICE',s:'研發',note:'Infineon 自己設計產品，因此研發同時包含製程技術、元件、模組與電路設計。',roles:[
+   {n:'製程整合',e:'Process Integration',d:'開發與最佳化功率 MOSFET 技術的整合概念與製程模組，從概念推進到最終驗證，並以實驗確認技術性能。相當於第一頁的整合工程師（PIE）。',j:'integ'},
+   {n:'元件分析',e:'Device Analysis',d:'為智慧功率（Smart Power）技術設計 LDMOS 電晶體的測試結構，建立電性測試並分析結果；是製程整合、元件模擬、可靠度與失效分析之間的介面。',j:'dev'},
+   {n:'功率模組研發',e:'R&D',d:'規劃並執行功率元件與模組的電性與熱特性量測，在樣品實驗室規劃原型的製作，並分析數據支援技術決策。',j:'rnd'},
+   {n:'技術開發工程師',e:'Technology Development Engineers',o:'Research & Development',d:'開發新材料與新技術。'},
+   {n:'失效分析工程師',e:'Failure Analysis Engineers',o:'Quality & Excellence',d:'追查每一個失效的原因；第一頁將材料與失效分析放在研發側，此處沿用。'},
+   {n:'產品工程師',e:'Product Engineers',o:'Research & Development',d:'把產品構想轉成具體的產品規格。'},
+   {n:'測試開發工程師',e:'Test Development Engineers',o:'Research & Development',d:'開發產品的測試，作為產品的品質關卡。'},
+   {n:'電路設計與驗證',e:'Digital / Analog & Mixed-Signal Design, Functional Verification',o:'Research & Development',d:'設計晶片電路並驗證其功能。'}]}
+ ]
+};
+function openIfx(from){
+  var role=function(r){var jb=r.j?IFXJOBS[r.j]:null;
+    return '<div class="ifxr">'+'<b>'+esc(r.n)+'</b><small>'+esc(r.e)+(r.o?'｜官網分類：'+esc(r.o):'')+'</small><span>'+esc(r.d)+'</span>'
+     +(jb?'<a class="tgj" href="'+jb[2]+'" target="_blank" rel="noopener">職缺：'+esc(jb[0])+'（'+esc(jb[1])+'）↗</a>':'')+'</div>'};
+  var h='<h3>Infineon 的公司內部結構</h3>'
+   +'<p style="margin:0 0 8px">Infineon 是整合元件製造商（Integrated Device Manufacturer, IDM）：自己設計晶片、在自家晶圓廠製造、封裝測試後，以自有品牌銷售。第一頁的產業鏈把它放在「IC 設計」欄，但它其實橫跨設計、晶圓製造與封裝測試。</p>'
+   +'<div class="sec"><h4>三大事業群（2026 年調整後）</h4><div class="ifxseg">'+IFX.segs.map(function(s){return '<div><b>'+esc(s[0])+'</b><small>'+esc(s[1])+'</small><span>'+esc(s[2])+'</span></div>'}).join('')+'</div>'
+   +'<p class="tnote" style="margin:6px 0 0">事業群依「產品賣給誰」劃分；下方的職能結構依「做什麼工作」劃分，同一職能會出現在各事業群中。</p></div>'
+   +'<div class="sec"><h4>職能結構</h4><p class="tnote" style="margin:0 0 8px">沿用第一頁「公司內部結構」的量產與研發兩側。角色與「官網分類」取自 Infineon 職涯頁的團隊分類；附有紅色職缺連結的角色，都有一份與我背景相近的實際職缺，其位置依職缺內容判斷。應用工程師等面向客戶的職位對應的產品很多，此處省略。</p><div class="ifxmap">'+IFX.cols.map(function(c){return '<section class="bld"><h2>'+esc(c.h)+' <small>'+esc(c.s)+'</small></h2>'
+     +c.roles.map(role).join('')+'<p class="tnote" style="margin:0">'+esc(c.note)+'</p></section>'}).join('')+'</div></div>'
+   +'<div class="sec"><h4>Infineon 與 TSMC 的差別</h4><table class="mt"><thead><tr><th></th><th>Infineon</th><th>TSMC</th></tr></thead><tbody>'
+   +[['商業模式','整合元件製造商（IDM）：自己設計、製造，並以自有品牌銷售','晶圓代工（pure-play foundry）：只替客戶製造，沒有自有品牌的晶片'],
+     ['主要產品','功率半導體（MOSFET、IGBT、二極體、SiC 與 GaN 元件）、微控制器、感測器、安全晶片','替 Apple、NVIDIA 等客戶製造的邏輯晶片，以及影像感測、射頻、電源管理等特殊製程'],
+     ['製程重點','功率與特殊製程：高電壓、垂直結構、薄晶圓、SiC 與 GaN 材料；不以縮小線寬為主要目標','先進邏輯製程：持續縮小電晶體（FinFET、GAA 奈米片）'],
+     ['價值鏈範圍','設計、前段晶圓製造、後段封裝測試，多在自家完成','以前段晶圓製造為主，另有先進封裝'],
+     ['兩者的關係','下一代 AURIX 車用微控制器委託 TSMC 以 28 nm 製程製造；持有 Dresden 合資晶圓廠 ESMC 的 10% 股份','ESMC 的主要股東（70%），Bosch、Infineon、NXP 各持 10%']
+    ].map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p class="tnote" style="margin:6px 0 0">Infineon 位於 Dresden 的智慧功率晶圓廠（Smart Power Fab）於 2026 年夏季開始量產爬坡。</p></div>'
+   +'<div class="sec">'
+   +'<p class="tnote" style="margin:4px 0 0">團隊分類來源：<a href="https://www.infineon.com/careers/teams" target="_blank" rel="noopener">Infineon 職涯頁 Teams ↗</a></p></div>';
+  show(h,'--accent',from);$('dlg').style.width='min(980px,100%)';
+}
+(function(){Array.prototype.forEach.call(document.querySelectorAll('.coclk'),function(b){b.addEventListener('click',function(){openIfx(b)})})})();
+
+/* ====================== v39 step interactions + power devices ====================== */
+function interHtml(){
+  var cx=[68,184,300,416,532],nm=['S1 薄膜形成','S2 微影','S3 蝕刻','S4 摻雜','S5 平坦化與連線'];
+  var s='<svg class="intsvg" viewBox="0 0 600 230" role="img" aria-label="製程步驟之間的交互影響"><defs><marker id="iah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e5484d"/></marker></defs>';
+  cx.forEach(function(c,i){s+='<rect x="'+(c-52)+'" y="95" width="104" height="40" fill="var(--floor)" stroke="var(--line)" stroke-width="2"/><text x="'+c+'" y="120" text-anchor="middle" class="it">'+nm[i]+'</text>'});
+  var arc=function(d,lx,ly,lab){return '<path d="'+d+'" fill="none" stroke="#e5484d" stroke-width="2" marker-end="url(#iah)"/><text x="'+lx+'" y="'+ly+'" text-anchor="middle" class="il">'+lab+'</text>'};
+  s+=arc('M68 93 Q126 58 182 93',126,89,'①');
+  s+=arc('M68 93 Q242 -8 414 93',242,24,'④ 下一層的高溫步驟');
+  s+=arc('M300 137 Q184 190 70 137',184,180,'② 下一層');
+  s+=arc('M532 137 Q358 245 186 137',358,214,'③ 下一層');
+  s+='</svg>';
+  var L=[['①','薄膜應力 → 微影對準','S1 鍍上的薄膜帶有應力，使晶圓微微翹曲，S2 曝光時圖案與前一層對不準（疊對誤差）。'],
+   ['②','蝕刻殘留 → 下一層薄膜','S3 留下的殘留物若未清除乾淨，下一層 S1 的薄膜會附著不良，或在介面形成缺陷。'],
+   ['③','研磨不平 → 下一層微影','S5 化學機械研磨（CMP）若產生碟形凹陷，表面高低不平，下一層 S2 曝光時部分區域會失焦。'],
+   ['④','熱預算 → 摻雜分布','S4 摻入的雜質，在之後的高溫步驟（例如高溫薄膜成長、退火）中會繼續擴散，使接面深度改變；因此各步驟累積的高溫（熱預算, thermal budget）必須一起規劃。']];
+  return '<h5 class="flowh">③ 步驟之間的交互影響</h5><p class="tnote">製程雖然一步接一步進行，但前面的步驟會影響後面的結果，問題也常常不在發生的那一步被發現。紅色箭頭表示影響的方向。</p>'
+   +'<div class="intbox">'+s+'<ol class="intl">'+L.map(function(r){return '<li><b>'+r[0]+' '+esc(r[1])+'：</b>'+esc(r[2])+'</li>'}).join('')+'</ol>'
+   +'<p class="tnote" style="margin:6px 0 0">因此在第 N 步發現的缺陷，成因可能在更早的步驟。缺陷工程（Defect Engineering）職缺所要求的「了解半導體製程及其交互影響」，指的就是這種能力。</p></div>';
+}
+function pwSvgs(){
+  var sv=function(body,lab){return '<svg class="pwsvg" viewBox="0 0 240 210" role="img" aria-label="'+lab+'剖面示意圖">'+body+'</svg>'};
+  var L=function(x,y,s,a){return '<text x="'+x+'" y="'+y+'"'+(a?' text-anchor="'+a+'"':'')+'>'+s+'</text>'};
+  var top='<rect x="20" y="34" width="150" height="34" fill="#fca5a5"/>'+L(178,56,'p 本體')+'<rect x="20" y="34" width="50" height="10" fill="#93c5fd"/><rect x="100" y="34" width="70" height="10" fill="#93c5fd"/>'+L(40,43,'n⁺','middle')+'<rect x="70" y="30" width="30" height="66" fill="#fde68a" stroke="#64748b" stroke-width="3"/>'+L(85,66,'閘極','middle')+L(85,80,'G','middle')+'<rect x="20" y="68" width="150" height="72" fill="#bfdbfe" opacity=".6"/>'+L(178,108,'n⁻ 漂移區');
+  return {
+   mos:sv('<rect x="20" y="20" width="150" height="14" fill="#94a3b8"/>'+L(178,31,'源極 S')+top+'<rect x="20" y="140" width="150" height="26" fill="#3b82f6" opacity=".7"/>'+L(178,157,'n⁺ 基板')+'<rect x="20" y="166" width="150" height="12" fill="#94a3b8"/>'+L(178,176,'汲極 D')+'<path d="M66 50 V160" stroke="#e5484d" stroke-width="2.5" marker-end="url(#pah)"/>'+L(20,200,'電子沿閘極側壁的通道往下流','start'),'功率 MOSFET'),
+   igbt:sv('<rect x="20" y="20" width="150" height="14" fill="#94a3b8"/>'+L(178,31,'射極 E')+top+'<rect x="20" y="140" width="150" height="26" fill="#f87171"/>'+L(178,157,'p⁺ 集極層')+'<rect x="20" y="166" width="150" height="12" fill="#94a3b8"/>'+L(178,176,'集極 C')+'<path d="M120 150 V80" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#pah2)"/>'+L(20,200,'背面的 p⁺ 層注入電洞（紫）','start'),'IGBT'),
+   dio:sv('<rect x="20" y="20" width="150" height="14" fill="#94a3b8"/>'+L(178,31,'陽極 A')+'<rect x="20" y="34" width="150" height="30" fill="#f87171"/>'+L(178,53,'p⁺')+'<rect x="20" y="64" width="150" height="76" fill="#bfdbfe" opacity=".6"/>'+L(178,106,'n⁻ 漂移區')+'<rect x="20" y="140" width="150" height="26" fill="#3b82f6" opacity=".7"/>'+L(178,157,'n⁺')+'<rect x="20" y="166" width="150" height="12" fill="#94a3b8"/>'+L(178,176,'陰極 K')+'<path d="M95 44 V160" stroke="#e5484d" stroke-width="2.5" marker-end="url(#pah)"/>'+L(20,200,'只允許電流單向通過','start'),'功率二極體')
+  };
+}
+var PWDEFS='<svg width="0" height="0" style="position:absolute"><defs><marker id="pah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e5484d"/></marker><marker id="pah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker><marker id="mah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e5484d"/></marker></defs></svg>';
+function openPower(from){
+  var f=pwSvgs();
+  var cards=[
+   {n:'功率 MOSFET',e:'Power MOSFET',f:f.mos,d:'與第 2 節的平面 MOSFET 原理相同：以閘極電壓控制通道導通或關閉。差別在結構：閘極做在溝槽裡，電流垂直穿過晶片，下方一段低摻雜的漂移區用來承受高電壓。切換速度快，常用於數十到數百伏特的電源轉換。'},
+   {n:'IGBT',e:'Insulated-Gate Bipolar Transistor',f:f.igbt,d:'絕緣閘雙極電晶體：上半部與功率 MOSFET 相同，背面多一層 p⁺。導通時這層會注入電洞，使漂移區的導電性大增，因此能承受更高的電壓（約 600 V 到 6.5 kV）與更大的電流。用於電動車的馬達逆變器、火車與風力發電。'},
+   {n:'功率二極體',e:'Power Diode',f:f.dio,d:'由 p 型與 n 型區域組成，只允許電流單向通過。用於把交流電轉成直流電（整流），也與 IGBT 或 MOSFET 並聯，在開關關閉的瞬間提供電流的路徑（續流）。碳化矽（SiC）蕭特基二極體常見於伺服器電源。'}];
+  var h=PWDEFS+'<h3>功率元件：控制電能的開關</h3>'
+   +'<p style="margin:0 0 8px">功率半導體（power semiconductor）不負責運算，而是開關大電流、承受高電壓，把電能轉換成需要的形式，例如把電池的直流電轉成驅動馬達的交流電，或把電網的交流電轉成伺服器需要的直流電。和第 2 節的邏輯電晶體最大的不同，是電流<b>垂直</b>穿過整片晶片。剖面圖為示意，未依比例。</p>'
+   +'<div class="pwcards">'+cards.map(function(c){return '<article class="prod pwc"><h3>'+esc(c.n)+'</h3><p class="zh">'+esc(c.e)+'</p>'+c.f+'<p class="kind">'+esc(c.d)+'</p></article>'}).join('')+'</div>'
+   +'<div class="sec"><h4>邏輯電晶體與功率元件的比較</h4><table class="mt"><thead><tr><th></th><th>邏輯電晶體（平面 MOSFET、FinFET、GAA）</th><th>功率元件（功率 MOSFET、IGBT、二極體）</th></tr></thead><tbody>'
+   +[['用途','處理資訊：運算、儲存與訊號處理','控制與轉換電能：開關大電流'],['電壓與電流','約 1 V，微安培等級','數十到數千伏特，數安培到上千安培'],['電流方向','沿晶片表面橫向流動','多數垂直穿過整片晶片'],['一顆晶片上的數量','數十億顆','一顆或少數幾顆，面積很大'],['製程重點','縮小尺寸','耐壓結構、晶圓薄化、背面製程，以及碳化矽（SiC）、氮化鎵（GaN）等材料']].map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'}).join('')+'</tbody></table></div>';
+  show(h,'--accent',from);$('dlg').style.width='min(980px,100%)';
+}
+function openMems(from){
+  var L=function(x,y,s,a,c){return '<text x="'+x+'" y="'+y+'"'+(a?' text-anchor="'+a+'"':'')+(c?' class="'+c+'"':'')+'>'+s+'</text>'};
+  var rel='<svg class="pwsvg" viewBox="0 0 520 200" role="img" aria-label="表面微加工的釋放步驟">'
+   +L(130,16,'① 釋放前','middle','mh')+L(390,16,'② 釋放後：結構懸空，可以移動','middle','mh')
+   +'<rect x="20" y="150" width="220" height="30" fill="#cbd5e1"/>'+L(130,170,'矽基板','middle')
+   +'<rect x="60" y="138" width="140" height="12" fill="#94a3b8"/>'+L(130,148,'固定電極','middle')
+   +'<rect x="40" y="96" width="180" height="42" fill="#fde68a"/>'+L(130,121,'犧牲層（SiO₂）','middle')
+   +'<rect x="20" y="96" width="20" height="54" fill="#64748b"/>'+'<rect x="40" y="76" width="180" height="20" fill="#60a5fa"/>'+L(130,90,'可動結構（多晶矽）','middle')
+   +'<rect x="280" y="150" width="220" height="30" fill="#cbd5e1"/>'+L(390,170,'矽基板','middle')
+   +'<rect x="320" y="138" width="140" height="12" fill="#94a3b8"/>'
+   +'<rect x="280" y="96" width="20" height="54" fill="#64748b"/>'+L(290,62,'錨點','middle')+'<path d="M290 66 V92" stroke="var(--ink)" stroke-width="1.5"/>'
+   +'<rect x="300" y="76" width="180" height="20" fill="#60a5fa"/>'
+   +'<path d="M455 100 V134" stroke="#e5484d" stroke-width="2" marker-end="url(#mah)" marker-start="url(#mah)"/>'+L(446,121,'間距 d → 電容 C','end','ml')
+   +'<path d="M232 112 H270" stroke="var(--ink)" stroke-width="2" marker-end="url(#mah)"/>'+L(250,104,'蝕刻犧牲層','middle','ms')
+   +'</svg>';
+  var rows=[['加速度計','手機畫面轉向、車用安全氣囊','懸空的質量塊受加速度推動而位移，與固定電極之間的電容隨之改變'],
+   ['陀螺儀','手機防手震、導航','持續振動的質量塊在轉動時受到科氏力，往另一個方向偏移'],
+   ['壓力感測器','汽車胎壓偵測、氣壓計','一片薄膜受壓力而彎曲，改變電容或電阻'],
+   ['麥克風','手機、耳機','薄膜隨聲波振動，與背板之間的電容隨之變化']];
+  var h=PWDEFS+'<h3>MEMS 感測器</h3>'
+   +'<p style="margin:0 0 8px">微機電系統（Micro-Electro-Mechanical Systems, MEMS）感測器，是以半導體製程製作微米尺度、可以活動的機械結構，例如懸空的質量塊或薄膜，用來把加速度、轉動、壓力或聲音等物理量轉成電訊號。</p>'
+   +'<div class="sec"><h4>怎麼做出可以動的結構</h4><p>使用的步驟與第一頁的製程相同：薄膜形成、微影、蝕刻。關鍵是多了一步「釋放」：先在結構下方鋪一層犧牲層，最後以蝕刻把它移除，上方的結構就懸空、可以移動，稱為表面微加工（surface micromachining）。另一種做法是從晶圓背面深蝕刻出空腔與薄膜，稱為體微加工（bulk micromachining），常用第一頁蝕刻表格中「交替蝕刻與側壁保護」的深蝕刻製程。</p>'+rel+'<p class="cap" style="margin:0">示意圖，簡化過，未依比例。</p></div>'
+   +'<div class="sec"><h4>怎麼把動作變成電訊號</h4><p>最常見的是電容式讀取：可動結構與固定電極構成一個電容器，兩者的間距 d 改變時，電容 C 隨之改變，旁邊的讀出電路再把電容的變化轉成電壓訊號。</p></div>'
+   +'<div class="sec"><h4>常見的 MEMS 感測器</h4><table class="mt"><thead><tr><th>感測器</th><th>用途</th><th>原理</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p class="cap" style="margin:6px 0 0">代表公司：Bosch（加速度計、陀螺儀等）、Infineon（MEMS 麥克風、壓力感測器）。</p></div>'
+   +'<div class="sec"><h4>與第二頁的關聯</h4><p>第二頁「電子束鏡柱與電子光學」提到的 MEMS，是電子束機台內部的微小靜電元件，而不是感測器；兩者的共同點是：都以半導體製程製作可受電場驅動或變形的微結構。</p></div>'
+   +'<div class="sec"><h4>其他感測與光電元件</h4><ul><li><b>CMOS 影像感測器：</b>每個像素中的光二極體把光轉成電荷，再由電晶體讀出，用於手機與車用相機。</li><li><b>發光二極體（LED）與雷射二極體：</b>把電能轉成光。</li></ul></div>';
+  show(h,'--accent',from);$('dlg').style.width='min(860px,100%)';
+}
+(function(){
+  var box=$('pwr');if(!box)return;
+  var cats=[['邏輯','Logic','處理器、AI 加速器、手機系統單晶片','TSMC（代工）、Intel'],
+   ['記憶體','Memory','DRAM、NAND 快閃記憶體','Samsung、SK hynix、Micron'],
+   ['類比與混合訊號','Analog & Mixed-Signal','放大器、類比數位轉換器、電源管理 IC','Texas Instruments、Analog Devices、Infineon'],
+   ['射頻','Radio Frequency, RF','手機與無線通訊的收發元件、車用雷達晶片','Qualcomm、Infineon'],
+   ['功率','Power','功率 MOSFET、IGBT、二極體','Infineon、onsemi、Mitsubishi Electric','pw'],
+   ['感測與光電','Sensors & Optoelectronics','MEMS 感測器、影像感測器、LED','Bosch、Sony、Infineon','mems']];
+  var ans='<p style="margin:0 0 8px">第 2 節的三種電晶體，是為了在一顆晶片上放進越多越好的邏輯開關而設計。同樣的半導體原理（p 型與 n 型區域、以電壓控制通道），也被做成用途不同的元件。依用途，半導體元件大致分成以下幾類（點「功率」與「感測與光電」看介紹）：</p>'
+   +'<table class="mt"><thead><tr><th>類別</th><th>代表元件</th><th>代表公司</th></tr></thead><tbody>'+cats.map(function(c){var nm=c[4]?'<button type="button" class="coname" data-app="'+c[4]+'">'+esc(c[0])+'</button>':'<b>'+esc(c[0])+'</b>';return '<tr><td>'+nm+'<br><small>'+esc(c[1])+'</small></td><td>'+esc(c[2])+'</td><td>'+esc(c[3])+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p class="cap" style="margin:6px 0 0">TSMC 以邏輯晶片代工為主，也提供影像感測、射頻、電源管理（BCD 製程）等特殊製程；Infineon 的產品則橫跨功率、類比、射頻與感測等多個類別。代表公司為舉例，並非排名。</p>';
+  box.className='qs';
+  box.innerHTML='<div class="qbox"><button type="button" aria-expanded="false" aria-controls="qaApp"><span class="q">?</span><span>應用：不同的元件</span></button><div class="a" id="qaApp" hidden>'+ans+'</div></div>';
+  var bt=box.querySelector('button'),an=box.querySelector('.a');
+  bt.addEventListener('click',function(){var o=an.hidden;an.hidden=!o;bt.setAttribute('aria-expanded',o?'true':'false')});
+  an.querySelectorAll('[data-app]').forEach(function(b){b.addEventListener('click',function(){(b.dataset.app==='pw'?openPower:openMems)(b)})});
+})();
+
+function tl2(t){var m=String(t).match(/^(.*?)（(.*)）$/);return m?esc(m[1])+'<br><span class="en2">'+esc(m[2])+'</span>':esc(t)}
 
 /* ====================== PART 2: skill detail modals ====================== */
 var IC2={
@@ -1858,11 +2307,11 @@ var ITEMS={meas:[
    ['離子幫浦如何運作','<p>離子幫浦（濺射離子幫浦，sputter-ion pump）沒有任何運動部件，是超高真空腔體最常用的幫浦。運作分成四步：</p><ol><li><b>磁場：</b>腔外的永久磁鐵產生約 0.1 T 的磁場，使電子沿螺旋路徑運動，在陽極筒中停留很久。</li><li><b>放電：</b>先粗抽到足夠低的壓力後，在陽極與鈦陰極之間加上數千伏的高電壓，形成冷陰極放電（Penning 放電），電子在陽極筒內形成電子雲。</li><li><b>游離：</b>氣體分子進入電子雲，被電子撞擊而游離成正離子，再被電場加速撞向陰極。</li><li><b>捕獲：</b>離子撞擊鈦陰極，濺射出鈦原子，在附近表面形成新鮮的鈦膜。活性氣體（氮、氧、氫等）與鈦膜反應而被吸附（化學式）；惰性氣體離子則直接被打進陰極、埋在裡面。</li></ol><p><b>二極式與三極式（diode/triode）</b></p><ul><li><b>二極式：</b>陽極筒夾在兩片鈦陰極之間，結構最簡單。缺點是被埋住的惰性氣體會在之後的濺射中重新釋放，抽惰性氣體的能力會逐漸變差。</li><li><b>三極式：</b>陰極做成柵網，離子以斜角撞擊、濺射效率較高；濺射面與成膜面分開，被捕獲的惰性氣體不易重新釋放，抽氬氣等惰性氣體較穩定。</li></ul><p>另有以一片鈦、一片鉭為陰極的改良型二極式（noble diode），同樣用來改善惰性氣體的抽氣。</p>'],
    ['烘烤','<p>腔體通常需要加熱烘烤（bake-out），趕走腔壁吸附的水氣，才能抽到超高真空。</p>'],
    ['壓力監測','<p>以真空計監測壓力：Pirani 真空計用於粗抽段，冷陰極或離子真空計用於高真空與超高真空段。</p>']]},
-  {k:'lock',n:'樣品傳送與儲存：進樣室與手套箱',kw:['load-lock','手套箱','真空傳送'],secs:[
+  {k:'lock',n:'進樣室與手套箱',kw:['load-lock','手套箱','真空傳送'],secs:[
    ['目的','<p>讓樣品在不接觸空氣、也不破壞主腔真空的情況下，送進量測腔體或暫時存放。</p>'],
    ['流程','<p><b>進樣室（load-lock）</b></p><ol><li>把樣品架放進體積很小的進樣室。</li><li>單獨將進樣室抽真空。</li><li>壓力達到設定值後，打開閘閥（gate valve）。</li><li>以傳送桿把樣品送進準備腔或主腔的操作台（manipulator）；樣品也可暫存在超高真空的儲存腔中等待量測。</li></ol><p>主腔因此始終維持超高真空，不必每次更換樣品都重新抽氣與烘烤。</p><p style="margin-top:2em"><b>手套箱（glovebox）</b></p><ol><li>手套箱內充滿惰性氣體（氬氣或氮氣），氧氣與水氣維持在極低濃度。</li><li>對空氣敏感、容易氧化或吸水的樣品，在手套箱內拆封、黏貼到樣品架並暫存。</li><li>再以密封的真空傳送盒（vacuum suitcase）送到進樣室，全程不接觸空氣。</li></ol>']]}
  ],cal:[
-  {k:'cal',n:'能量校正與數據品質（Calibration and Data Quality）',kw:['光束對準','能量參考','金的費米邊','正規化'],secs:[
+  {k:'cal',n:'能量校正與數據品質',kw:['光束對準','能量參考','金的費米邊','正規化'],secs:[
    ['為什麼需要校正','<p>光譜的橫軸是能量、縱軸是強度，兩者都會受儀器狀態影響：光斑可能偏離樣品，光束線輸出的光子能量會有微小漂移，入射光的強度也隨時間改變。若不校正，不同時間量到的光譜無法互相比較，也無法與計算結果比較。半導體製程中的量測同樣仰賴參考標準與定期校正，原因相同。</p>'],
    ['1. 光束對準（我執行的步驟）','<p>量測前先找出光最集中、訊號最強的位置（optimize）：在偵測器的空間分布圖上觀察訊號，先以粗調旋鈕（每格 0.02 mm）、再以細調旋鈕（每格 0.002 mm）調整位置，直到強度最大。若光沒有打在樣品上，例如打到固定樣品的支柱，光譜會出現不屬於樣品的多餘峰。</p><p>對準時選一個靠近目標能量區間的內層能階峰當參考，並由能量守恆估算它的中心動能：</p><div class="eq">E<sub>kin</sub> = hν − E<sub>B</sub> − Φ</div><p>例如光子能量 550 eV、以 Te 4d 峰（束縛能約 41 eV）為參考，儀器功函數約 3 eV 時，中心動能約為 550 − 41 − 3 = 506 eV。</p>'],
    ['2. 能量參考：金的費米邊（我執行的步驟）','<p>金屬在費米能階有一條清楚的佔據邊界，稱為費米邊（Fermi edge）。金與樣品都和分析儀電性接觸，費米能階彼此對齊，因此金的費米邊可以當作共同的能量零點。</p><ol><li>量測金的參考片，以費米分布函數擬合費米邊，找出費米能階對應的動能。</li><li>把這個動能輸入量測設定，之後樣品的動能便以費米能階為零點換算成束縛能。</li><li>光電子能譜量測期間約每 2 小時重新量一次金的費米邊，一組量測的開頭與結尾也各量一次，以確認能量沒有漂移。</li></ol><p>金參考片會重複使用，因此表面需以氬離子濺射（Ar sputtering）清潔，再加熱使表面恢復平整。</p>'],
@@ -1870,7 +2319,7 @@ var ITEMS={meas:[
    ['4. 數據品質的即時判斷（我執行的步驟）','<ul><li><b>重複掃描：</b>每組數據掃描 8 次後平均。隨機雜訊的相對大小約與掃描次數的平方根成反比，掃描次數通常取 2、4、8、16 次。</li><li><b>偵測器飽和：</b>CCD 每個像素的讀值上限是 255；接近飽和時，訊號與光強度不再成正比，峰會變矮。因此同一組量測要盡量維持相同的飽和程度。</li><li><b>偏振量測的一致性：</b>XAS 依水平與垂直線偏振交替量測（HVVHHVVH）；同一偏振的光譜應彼此重合，再平均並相減得到線二色性（Linear Dichroism, LD）：LD = LH − LV。</li><li><b>充電效應（charging）：</b>絕緣樣品被打出電子後，若沒有與樣品座良好接觸，電子無法補充，表面帶正電，峰位因此偏移，重複量測的光譜也不再重合。準備樣品時以不鏽鋼線把薄膜連接到樣品座的導電層；筆記中記錄的另一個做法是改用較低能量的光量測。</li><li><b>參考是否正確：</b>確認使用的參考光譜與當次量測條件一致。</li></ul>'],
    ['我的角色','<p>我實際操作的是光束對準、量測金的費米邊，以及量測中的數據品質判斷。以光柵與狹縫調整能量解析度、真空系統的參數設定，由實驗站的其他成員負責，我只在筆記中記錄了原理。</p>']]}
  ]};
-function itemBtn(grp,i){var t=ITEMS[grp][i];return '<button type="button" class="itm" data-g="'+grp+'" data-i="'+i+'">'+icImg(t.k,64)+'<b>'+esc(t.n.replace(/（[^（]*?, ([^，）]+)）/,'（$1）'))+'</b><span>點圖看原理</span></button>'}
+function itemBtn(grp,i,bare){var t=ITEMS[grp][i];var nm=esc(t.n.replace(/（[^（]*?, ([^，）]+)）/,'（$1）'));if(bare)nm=nm.replace('（','<br>（');return '<button type="button" class="itm'+(bare?' bare':'')+'" data-g="'+grp+'" data-i="'+i+'">'+icImg(t.k,64)+'<b>'+nm+'</b>'+(bare?'':'<span>點圖看原理</span>')+'</button>'}
 function openItem(grp,i,from){
   var t=ITEMS[grp][i];
   show('<h3>'+esc(t.n)+'</h3>'+(t.figs?'<div class="wfigs n'+t.figs.length+'">'+t.figs.map(function(f){return '<figure class="wfig'+(f[4]?' '+f[4]:'')+'"><img src="'+f[0]+'" alt="'+f[1]+'"><figcaption><b>'+f[1]+'</b>　'+f[2]+'<span class="src">'+f[3]+'</span></figcaption></figure>'}).join('')+'</div>':'<div class="ic2big">'+icImg(t.k,160)+'</div>')+'<div>'+t.kw.map(function(w){return '<span class="tag2">'+esc(w)+'</span>'}).join('')+'</div>'
@@ -1907,21 +2356,20 @@ function dflowHtml(){
 function openSkill(k,from){
   var h;
   if(k==='sim'){
-    h='<h3>Simulation：量子系統的模擬</h3><figure class="wfig mf"><img src="img/sim_overview.jpg" alt=""><figcaption>多體問題的兩種近似：DFT 把每個電子看成在其他電子形成的有效位勢中獨立運動（單粒子近似）；DMFT 則保留同一格點上電子之間的交互作用，把周圍環境視為一個電子浴（多體近似）。<span class="src">圖：取自我的博士論文</span></figcaption></figure><p style="margin:0 0 8px"><b>目的與方法：</b>透過不同模型和近似層級的模擬，我們可以把計算出的物理量與實驗比較，從而驗證背後的機制。</p>'
+    h='<h3>模擬（Simulation）：量子系統</h3><figure class="wfig mf"><img src="img/sim_overview.jpg" alt=""><figcaption>多體問題的兩種近似：DFT 把每個電子看成在其他電子形成的有效位勢中獨立運動（單粒子近似）；DMFT 則保留同一格點上電子之間的交互作用，把周圍環境視為一個電子浴（多體近似）。<span class="src">圖：取自我的博士論文</span></figcaption></figure><p style="margin:0 0 8px"><b>目的與方法：</b>透過不同模型和近似層級的模擬，我們可以把計算出的物理量與實驗比較，從而驗證背後的機制。</p>'
      +'<div class="sec"><h4>套件與工具</h4><div>'+PKGS.map(function(w){return w[1]?'<a class="tag2 lk" href="'+w[1]+'" target="_blank" rel="noopener">'+esc(w[0])+' ↗</a>':'<span class="tag2">'+esc(w[0])+'</span>'}).join('')+'</div></div>'
      +'<div class="sec"><h4>模型（點擊看介紹）</h4>'+chipRow(MODELS,'mod')+'</div>'
      +'<div class="sec"><h4>近似方法（點擊看介紹）</h4>'+chipRow(METHODS,'app')+'</div>'
      +'<div class="sec"><h4>題目</h4>'+TOPICS.map(function(t){var h='<div class="proj"><b>'+t.n+'</b><dl><dt>模擬時間</dt><dd>'+esc(t.t)+'</dd>';if(t.p)h+='<dt>論文發表</dt><dd>'+t.p+'</dd>';t.rows.forEach(function(r){h+='<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>'});return h+'</dl></div>'}).join('')+'</div>';
   }else if(k==='data'){
-    h='<h3>Data Analysis：我做過的分析與技能</h3><p style="margin:0 0 8px">模擬套件輸出的資料量大，而且因為蒙地卡羅取樣而帶有雜訊。下面列出我在研究中用到的技能。</p>'
+    h='<h3>數據分析（Data Analysis）：我做過的分析與技能</h3><p style="margin:0 0 8px">模擬套件輸出的資料量大，而且因為蒙地卡羅取樣而帶有雜訊。下面列出我在研究中用到的技能。</p>'
      +dflowHtml()
      +'<table class="mt"><thead><tr><th>能力</th><th>範例</th></tr></thead><tbody>'+DA.map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</tbody></table>';
   }else{
-    h='<h3>Experiment & Collaboration：同步輻射中心量測經驗</h3>'
-     +'<div class="sec"><h4>量測方法（點圖看原理）</h4><div class="itms">'+ITEMS.meas.map(function(_,i){return itemBtn('meas',i)}).join('')+'</div></div>'
-     +'<div class="sec"><h4>實驗平台：光源與真空（點圖看原理）</h4><div class="itms">'+ITEMS.plat.map(function(_,i){return itemBtn('plat',i)}).join('')+'</div></div>'
-     +'<div class="sec"><h4>校正與數據品質（點圖看原理）</h4><div class="itms">'+ITEMS.cal.map(function(_,i){return itemBtn('cal',i)}).join('')+'</div></div>'
-     +'<div class="sec"><p>2020 年 4 到 6 月，在 NSRRC（TPS 45A1）實習：</p><ul><li>在 UHV 條件下進行 ARPES、XAS 量測</li><li>校正，檢查光束對準與參考準確度</li><li>整理與處理數據，回傳給專案負責人</li></ul></div>';
+    h='<h3>實驗與協作（Experiment & Collaboration）：同步輻射中心量測經驗</h3>'
+     +'<div class="sec"><h4>實驗平台（點圖看原理）</h4><div class="itms eq">'+ITEMS.plat.map(function(_,i){return itemBtn('plat',i,1)}).join('')+'</div><p class="tnote" style="margin:6px 0 0">光源提供可調能量的 X 光；真空幫浦讓量測腔維持超高真空；樣品經由進樣室與手套箱送入，可以不接觸空氣，也不破壞量測腔的真空。</p></div>'
+     +'<div class="sec"><h4>校正與量測（點圖看原理）</h4><p class="tnote">量測前先完成能量校正並確認數據品質，之後才進行 ARPES 與 XAS 量測。</p><div class="itms eq calrow">'+itemBtn('cal',0,1)+'<span class="farr" aria-hidden="true">→</span>'+ITEMS.meas.map(function(_,i){return itemBtn('meas',i,1)}).join('')+'</div></div>'
+     +'<div class="sec"><p>2020 年 4 到 6 月，在國家同步輻射研究中心（National Synchrotron Radiation Research Center, NSRRC）台灣光子源（Taiwan Photon Source, TPS）45A1 光束線實習：</p><ul><li>在 UHV 條件下進行 ARPES、XAS 量測</li><li>校正，檢查光束對準與參考準確度</li><li>整理與處理數據，回傳給專案負責人</li></ul></div>';
   }
   show(h,k==='sim'?'--tcad':k==='data'?'--yed':'--ae',from);
   $('dlg').style.width='min(760px,100%)';
