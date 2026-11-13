@@ -555,6 +555,121 @@ details.refs td:last-child,details.refs th:last-child{white-space:nowrap}
 details.refs .en{display:block;font-size:11px;color:var(--muted);margin-top:2px}
 details.refs .fit{display:block;margin-top:6px;padding-top:4px;border-top:1px dashed var(--floor)}
 @media (max-width:640px){details.refs td:last-child,details.refs th:last-child{white-space:normal}}
+/* v35 story position strip and process flows */
+.pos{border:2px solid var(--line);background:var(--panel);padding:8px 10px 6px;margin:0 0 12px}
+.posh{font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--accent);margin:0 0 6px}
+.posrow{display:flex;align-items:flex-start;gap:8px;margin:0 0 6px}
+.posl{flex:0 0 64px;font-size:11px;color:var(--muted);padding-top:8px}
+.posics{display:flex;flex-wrap:wrap;gap:4px;flex:1;min-width:0}
+.pi{display:flex;flex-direction:column;align-items:center;width:66px;opacity:.28;filter:grayscale(1)}
+.pi img{width:28px;height:28px;image-rendering:pixelated}
+.pi small{font-size:10px;line-height:1.25;text-align:center;color:var(--ink)}
+.pi.on{opacity:1;filter:none}
+.pi.on img{outline:2px solid var(--accent);outline-offset:1px;background:var(--floor)}
+.pi.on small{font-weight:700}
+.poswho,.postxt{font-size:13px;line-height:1.6;margin:4px 0 0}
+.poswho b{display:inline-block;font-size:11px;color:var(--bg);background:var(--ink);padding:0 6px;margin-right:6px}
+.flows{display:block;margin-top:8px}
+.flowh{font-family:var(--f-jp);font-size:14px;margin:10px 0 4px;color:var(--ink)}
+.pflow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:4px 0 8px}
+.pcol{border:2px solid var(--line);background:var(--floor);display:flex;flex-direction:column;min-width:0}
+.phead{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px;border-bottom:2px dashed var(--line);background:var(--panel)}
+.phead img{width:30px;height:30px;image-rendering:pixelated}
+.phead b{font-size:12px}.phead span{font-size:12px;text-align:center}
+.pbody{display:flex;flex-direction:column;gap:4px;padding:6px 4px;align-items:stretch}
+.pgray{font-size:11px;color:var(--muted);line-height:1.4;text-align:center}
+.cchip{appearance:none;font:inherit;font-size:12px;line-height:1.3;border:2px solid var(--line);background:var(--bg);color:var(--ink);padding:3px 4px;cursor:pointer;box-shadow:2px 2px 0 var(--shadow)}
+.cchip:hover,.cchip:focus-visible{border-color:var(--accent);outline:none}
+.cchips{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:4px}
+.dbtn{appearance:none;cursor:pointer;padding:0;font:inherit;box-shadow:3px 3px 0 var(--shadow)}
+.dbtn:hover,.dbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.colintro{border-left:4px solid var(--tcad);background:var(--panel);padding:8px 12px;margin:4px 0 6px}
+.colintro h5{font-family:var(--f-jp);font-size:14px;margin:0 0 4px}
+.colintro p{font-size:13.5px;line-height:1.7;margin:0 0 6px}
+@media (max-width:640px){.pflow{grid-template-columns:repeat(3,minmax(0,1fr))}.posl{flex-basis:auto;width:100%;padding:0}.posrow{flex-wrap:wrap}.pi{width:58px}}
+/* v36 clickable flow boxes */
+.pi.on img{outline:none}
+.chain{margin:6px 0 10px}
+.cflow{display:flex;align-items:stretch;gap:4px}
+.fbox{appearance:none;font:inherit;color:inherit;position:relative;flex:1 1 0;min-width:0;border:3px solid var(--line);background:var(--floor);box-shadow:3px 3px 0 var(--shadow);display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px 8px;text-align:center}
+button.fbox{cursor:pointer;transition:transform .12s}
+button.fbox:hover,button.fbox:focus-visible{transform:translate(-1px,-1px);border-color:var(--c);outline:none}
+.fbox img{width:48px;height:48px;image-rendering:pixelated}
+.fbox b{color:var(--c);font-size:13.5px;font-family:var(--f-jp);line-height:1.3}
+.fbox .fd{font-size:12px;line-height:1.45;color:var(--ink)}
+.fbox.multi{box-shadow:none;border-style:dashed}
+.fnum{position:absolute;left:-3px;top:-3px;width:22px;height:22px;background:var(--c);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.farr{align-self:center;color:var(--muted);font-size:18px;flex:0 0 auto}
+.mhead{display:flex;align-items:flex-start;gap:8px;margin:2px 0 6px}
+.tflow{display:grid;grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:auto auto;gap:8px 4px;margin:6px 0 10px}
+.tflow .lane{grid-column:1;display:flex;gap:8px;align-items:center}
+.tflow .lanein{display:flex;align-items:stretch;gap:4px;flex:1;min-width:0}
+.tflow .lanein .fbox{flex:1 1 0}
+.tflow .join{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;justify-content:center}
+.lanel{flex:0 0 64px;font-size:11px;color:var(--muted)}
+.posics.mini{flex:1 1 0;justify-content:center;align-content:flex-start;align-self:center;height:auto;min-height:64px}
+.posics.mini .pi{width:52px}
+.fembar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;border:2px solid var(--line);background:var(--panel);padding:6px 8px;margin:0 0 8px}
+.station{border:3px solid var(--line);background:var(--panel);padding:8px 10px 10px}
+.stl{font-family:var(--f-jp);font-weight:700;font-size:13px;color:var(--accent);margin:0 0 6px}
+.calflow{display:flex;align-items:stretch;gap:6px}
+.cstep{position:relative;flex:1 1 0;min-width:0;border:2px dashed var(--line);padding:14px 8px 8px}
+.cstep .itms{margin:0}
+.cnum{position:absolute;left:-2px;top:-2px;width:22px;height:22px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+@media (max-width:640px){.cflow,.calflow,.tflow .lanein{flex-direction:column}.farr{transform:rotate(90deg)}.tflow{grid-template-columns:1fr}.tflow .join{grid-column:1;grid-row:auto}.tflow .lane{flex-wrap:wrap}}
+/* v37 */
+.cflow{align-items:flex-start}
+.cflow .farr{margin-top:36px}
+.fstep{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.fstep>.fbox{flex:none}
+.fstep>.fd{font-size:12px;line-height:1.5;text-align:center;color:var(--ink)}
+.fstep>.cchips{margin-top:0}
+.itms.eq{display:flex;align-items:stretch;gap:8px}
+.itms.eq .itm.bare{flex:1 1 0;min-width:0;justify-content:center}
+.itm.bare b{text-align:center}
+.calrow .farr{align-self:center}
+@media (max-width:640px){.itms.eq{flex-direction:column}.cflow .farr{margin-top:0}}
+.itms.eq{border:0;background:none;padding:0;box-shadow:none}
+/* v38 Infineon */
+.coclk{appearance:none;font:inherit;color:inherit;text-align:left;display:block;width:100%;border:2px solid var(--line);background:var(--bg);box-shadow:3px 3px 0 var(--shadow);padding:6px 8px;cursor:pointer}
+.coclk:hover,.coclk:focus-visible{border-color:var(--accent);outline:none;transform:translate(-1px,-1px)}
+.coclk .clk{display:inline-block;font-size:10px;font-weight:700;background:var(--accent);color:#fff;padding:0 4px;vertical-align:2px}
+.co .cohint{color:var(--accent);font-size:11px;margin-top:2px}
+.ifxseg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ifxseg>div{border:2px solid var(--line);background:var(--floor);padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.ifxseg b{font-family:var(--f-jp);font-size:14px}.ifxseg small{font-size:11px;color:var(--muted)}.ifxseg span{font-size:12.5px;line-height:1.5}
+.ifxmap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.ifxmap .bld{gap:8px;padding:10px}
+.ifxr{position:relative;border:2px solid var(--line);background:var(--floor);padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.ifxr b{font-family:var(--f-jp);font-size:13.5px}.ifxr small{font-size:11px;color:var(--muted)}.ifxr>span{font-size:12.5px;line-height:1.5}
+.ifxr.tg{border:3px solid var(--accent);background:var(--bg);padding-top:20px}
+.tgb{position:absolute;left:-3px;top:-3px;background:var(--accent);color:#fff;font-family:var(--f-pix);font-size:9px;padding:3px 6px}
+.tgw{margin:4px 0 0;font-size:12px;line-height:1.55;border-top:2px dashed var(--line);padding-top:4px}
+@media (max-width:760px){.ifxmap,.ifxseg{grid-template-columns:1fr}}
+/* v39 */
+.cflow>.farr{align-self:flex-start;margin-top:38px}
+.coname{appearance:none;font:inherit;font-weight:700;font-size:14px;color:var(--ink);background:var(--bg);border:2px solid var(--line);box-shadow:2px 2px 0 var(--shadow);padding:1px 8px;margin:0 0 3px;cursor:pointer}
+.coname:hover,.coname:focus-visible{border-color:var(--accent);outline:none}
+.tgj{display:block;margin-top:4px;font-size:12px;font-weight:700;color:var(--accent);text-decoration:none;border-top:2px dashed var(--line);padding-top:4px}
+.tgj:hover{text-decoration:underline}
+.intbox{border:2px solid var(--line);background:var(--panel);padding:8px 10px}
+.intsvg{width:100%;max-width:640px;display:block;margin:0 auto}
+.intsvg .it{font-size:12px;fill:var(--ink)}.intsvg .il{font-size:12px;font-weight:700;fill:#e5484d}
+.intl{margin:6px 0 0;padding-left:0;list-style:none;font-size:13px;line-height:1.65}
+.pwh{font-family:var(--f-jp);font-size:16px;margin:22px 0 6px}
+.pwcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.pwc{--c:var(--accent)}
+.pwsvg{width:100%;display:block;margin:4px 0 6px}
+.pwsvg text{font-size:10.5px;fill:var(--ink)}
+/* v40 */
+.lead{max-width:none}
+.rolebtn b{font-family:var(--f-jp);font-size:15px;line-height:1.4;letter-spacing:0}
+.skill b,.rolebtn b{text-align:center}
+.en2{font-size:13px;font-weight:600}
+.ifxmap{grid-template-columns:repeat(2,minmax(0,1fr))}
+#pwr{margin-top:14px}
+.mt .coname{margin:0}
+.pwsvg .mh{font-size:12px;font-weight:700}.pwsvg .ml{fill:#e5484d;font-weight:700}.pwsvg .ms{font-size:10px}
 
 .illu svg text{font-size:9.5px}
 
@@ -580,6 +695,7 @@ details.refs .fit{display:block;margin-top:6px;padding-top:4px;border-top:1px da
       <h2 class="hd">2 The Product: Transistors Inside a Chip</h2>
       <p class="lead">A chip contains billions of transistors, each one a switch controlled by voltage. The structure has changed three times, in this order. Click a diagram to see how it works.</p>
       <div class="prods" id="prods"></div>
+      <div id="pwr"></div>
     </section>
 
     <section class="blk" id="s-how">
@@ -646,7 +762,7 @@ details.refs .fit{display:block;margin-top:6px;padding-top:4px;border-top:1px da
     </section>
 
     <section class="blk" id="s-ask">
-      <h2 class="hd">What and how can I contribute?</h2>
+      <h2 class="hd">What can I contribute, and how?</h2>
       <div class="three" id="three"></div>
       <div id="rolePanel"></div>
       <div id="refsBox"></div>
@@ -1023,7 +1139,7 @@ var PIC={
 var INDUSTRY=[
  {ic:'design',nm:'IC design',sub:'Draw the chip’s circuits',
   tw:[['MediaTek','Phone and home-appliance chip design']],
-  de:[['Infineon','Automotive and power chips, with its own fabs']],
+  de:[['Infineon','Automotive and power chips and microcontrollers; designs and manufactures its own chips (IDM)','ifx']],
   ot:[['NVIDIA (US)','Graphics and AI chip design'],['Qualcomm (US)','Phone chip design']]},
  {ic:'mat',nm:'Materials',sub:'Silicon wafers and chemicals',
   tw:[['GlobalWafers','Silicon wafers']],
@@ -1061,7 +1177,7 @@ var INDUSTRY=[
     var rl=document.createElement('div');rl.className='rl';rl.textContent=row[1];g.appendChild(rl);
     INDUSTRY.forEach(function(c){
       var d=document.createElement('div');
-      d.innerHTML=(c[row[0]]||[]).map(function(x){return '<div class="co"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('');
+      d.innerHTML=(c[row[0]]||[]).map(function(x){return x[2]?'<div class="co"><button type="button" class="coname coclk" data-co="'+x[2]+'" aria-label="'+esc(x[0])+': view the company structure">'+esc(x[0])+'</button><span>'+esc(x[1])+'</span></div>':'<div class="co"><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></div>'}).join('');
       g.appendChild(d);
     });
   });
@@ -1418,7 +1534,7 @@ var SKILLS=[
     var d=document.createElement('div');d.className='skill';d.dataset.k=s.k;
     var cv=document.createElement('canvas');cv.width=48;cv.height=36;cv.className='px';
     var x=cv.getContext('2d');function R(a,b,w,h,c){x.fillStyle=c;x.fillRect(a,b,w,h)}SK[s.k](R,x);
-    d.appendChild(cv);d.insertAdjacentHTML('beforeend','<b>'+esc(s.t)+'</b><span>'+esc(s.d)+'</span>');g.appendChild(d);
+    d.appendChild(cv);d.insertAdjacentHTML('beforeend','<b>'+tl2(s.t)+'</b><span>'+esc(s.d)+'</span>');g.appendChild(d);
   });
 })();
 
@@ -1491,7 +1607,7 @@ var SIMROWS=[
 ];
 TOOLS.push(NEWTOOLS.fib,NEWTOOLS.tem,NEWTOOLS.sims,NEWTOOLS.xrd);
 /* v31 reference jobs: zh shown in the Chinese page; en kept for the English version */
-var REFTABS=[['sim','Simulation'],['data','Data Analysis'],['ae','Experiment']];
+var REFTABS=[['sim','Simulation'],['data','Data analysis'],['ae','Experiment & Collaboration']];
 var REFS={
 sim:[
  {co:'TSMC',zh:'TCAD engineer: device and transport simulation',en:'TCAD Engineer – Device and Transport Simulation',sc:null,deg:['PhD','PhD'],kw:[
@@ -1516,7 +1632,7 @@ sim:[
 data:[
  {co:'TSMC',zh:'研發工程師：先進技術良率卓越處（ATYED）',en:'RD ATYED Engineer',sc:null,deg:['碩士以上',"Master's degree or higher"],kw:[
    ['Physics','Physics','光學/電性相關基礎知識、先進製程、缺陷檢測與分析','basic knowledge: optical/electrical related; advanced processes; advanced defect inspection and analysis'],
-   ['Job content','Tasks','開發有效降低缺陷的檢測方法、分析數據找出技術開發問題的根本原因、以自動化提升工作效率、以基本原理解決技術問題、中英雙語溝通','develop defect inspection methodology for effective defect reduction, analyze data and identify root causes of issues for technology development, enhance working productivity by automation, technical problem-solving based on fundamental principles, bilingual Mandarin and English communication']],cat:['Data Analysis','Yield improvement and defect analysis']},
+   ['Job content','Tasks','開發有效降低缺陷的檢測方法、分析數據找出技術開發問題的根本原因、以自動化提升工作效率、以基本原理解決技術問題、中英雙語溝通','develop defect inspection methodology for effective defect reduction, analyze data and identify root causes of issues for technology development, enhance working productivity by automation, technical problem-solving based on fundamental principles, bilingual Mandarin and English communication']],cat:['Data analysis','Yield improvement and defect analysis']},
  {co:'KLA',zh:'數學家/物理學家/化學家（製程分析與控制軟體）',en:'Mathematician / Physicist / Chemist',sc:[6,10],deg:['碩士（或學士＋2 年相關經驗）','Master (or Bachelor with 2 years of related experience)'],kw:[
    ['領域知識','Domain','圖案化製程的分析與控制、進階建模與模擬、數據分析、製程控制建模','patterning process analytics and control, advanced modeling simulation, data analytics, process control modeling'],
    ['Job content','Tasks','規劃新產品功能並撰寫軟體文件、理解應用領域並引導團隊找出對客戶最有價值的方案、敏捷團隊（最多 8 人）、與應用工程師交流','work out concepts for new product features and document the software, understand the domain and guide the team to the most valuable solution for customers, agile team of up to 8 members, close contact with application engineers']],cat:['Data Analysis (adjacent category)','A role closer to software engineering (domain expert in a software product), not data analysis']}
@@ -1588,7 +1704,7 @@ var R3=[
  {id:'data',key:'yed',c:'--yed',title:'Data Analysis',ex:'e.g. yield improvement: find defects and their causes',
   desc:['Look at defect data: wafer maps and the defect lists from inspection tools, to find abnormal spatial and process patterns.','Confirm with other instruments: inspection, SEM, electrical measurement, narrowing the problem down step by step.','Trace the root cause: discuss with process, integration and equipment engineers and narrow the scope to one step.'],
   used:{data:'main',sim:'also',exp:'also'},gaps:['I have not operated SEM or electrical measurement myself (I can explain the principles)','Production practice of DOE and SPC','Process flow and equipment knowledge'],
-  tools:TOOLS,tn:'Tools for inspection and analysis',tnote:'The signals measured by these tools are exactly what the “Electron-beam and metrology physics simulation” entry under Simulation predicts: simulation predicts the signal from physical principles, while data analysis infers the cause from the signal. FIB, TEM, SIMS and XRD belong to materials and failure analysis; when a yield investigation needs to confirm the physical cause of a defect, the sample is sent for analysis.',
+  tools:TOOLS,tn:'Tools for inspection and analysis',tnote:'The signals measured by these tools are exactly what the “Electron-beam and metrology physics simulation” entry under Simulation predicts: simulation predicts the signal from physical principles, while data analysis infers the cause from the signal.',
   project:{t:'Wafer map defect pattern classification',s:'Machine Learning',d:'Using a public wafer-map dataset, classify defect patterns (edge ring, scratch, local cluster, etc.) and use a confusion matrix to see which patterns are easily confused.',tags:['Python','scikit-learn / PyTorch','WM-811K dataset (check the license before use)'],st:'Planned'}},
  {id:'ae',key:'ae',c:'--ae',title:'Experiment & Collaboration',ex:'e.g. equipment-maker application engineer, instrument R&D',note:'An AE values three things: understanding the instrument, understanding the science, and being able to explain both to customers. My counterpart is Experiment & Collaboration: I have assisted with spectroscopy measurements at a synchrotron, and I can explain physics clearly. I have not operated customer-side tools, which is a part I need to fill in.',
   desc:['Stands between the customer and one’s own R&D, handling the customer’s problems and new needs.','An Application Engineer leans toward customer support, recipes and tool acceptance; an Application Scientist leans toward research and new applications, and a PhD is common.','The title mostly appears at equipment, materials and metrology companies and some chip companies; foundries do not use this title.'],
@@ -1602,7 +1718,7 @@ var SKN={sim:'Simulation',data:'Data Analysis',exp:'Experiment & Collaboration'}
     var b=document.createElement('button');b.type='button';b.className='rolebtn';b.dataset.id=r.id;b.setAttribute('aria-pressed','false');b.style.setProperty('--c','var('+r.c+')');
     var say=document.createElement('span');say.className='say';say.textContent='Click to learn more';
     var cv=document.createElement('canvas');cv.width=10;cv.height=14;
-    b.appendChild(say);b.appendChild(cv);b.insertAdjacentHTML('beforeend','<b>'+esc(r.title)+'</b><span class="ex">'+esc(r.ex)+'</span>');
+    b.appendChild(say);b.appendChild(cv);b.insertAdjacentHTML('beforeend','<b>'+tl2(r.title)+'</b><span class="ex">'+esc(r.ex)+'</span>');
     b._cv=cv;b._r=r;g.appendChild(b);
     b.addEventListener('click',function(){pickRole(r.id)});
   });
@@ -1658,7 +1774,7 @@ function pickRole(id){
 /* ====================== navigation ====================== */
 var TOCS={
  1:[['s-chain','Value chain'],['s-tr','Product'],['s-org','Company structure'],['s-flow','Process flow']],
- 2:[['s-me','New role: Yi-Ting'],['s-ask','What and how can I contribute']]
+ 2:[['s-me','New role: Yi-Ting'],['s-ask','What I can contribute']]
 };
 var NAVIC=[];
 (function(){
@@ -1752,6 +1868,339 @@ try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paintAl
   upd();
 })();
 renderRefs();
+
+/* ====================== v35 story position, process flows, e-beam chain ====================== */
+var ICACHE={};
+function icData(key,fn){if(ICACHE[key])return ICACHE[key];var cv=document.createElement('canvas');cv.width=32;cv.height=32;if(fn)icon(cv,fn);return ICACHE[key]=cv.toDataURL()}
+function stepIc(i){return icData('s'+i,SI[STEPS[i].ic])}
+function methIc(id){var m=METH.filter(function(x){return x.id===id})[0];return icData('m'+id,MI[m.ic])}
+function toolIc(k){return icData('t'+k,ICONS[k])}
+function posHtml(p){
+  if(!p)return '';
+  var s=p.s||[],m=p.m||[];
+  var h='<div class="pos"><div class="posh">Position in the process</div><div class="posrow"><span class="posl">Process steps</span><div class="posics">'
+    +STEPS.map(function(st,i){return '<span class="pi'+(s.indexOf(i)>=0?' on':'')+'"><img alt="" src="'+stepIc(i)+'"><small>S'+i+' '+esc(st.n)+'</small></span>'}).join('')+'</div></div>';
+  if(m.length)h+='<div class="posrow"><span class="posl">Metrology and inspection</span><div class="posics">'+METH.map(function(x){return '<span class="pi'+(m.indexOf(x.id)>=0?' on':'')+'"><img alt="" src="'+methIc(x.id)+'"><small>'+esc(x.n)+'</small></span>'}).join('')+'</div></div>';
+  return h+'<p class="poswho"><b>Who does it</b>'+esc(p.who)+'</p><p class="postxt">'+esc(p.txt)+'</p></div>';
+}
+function openTool(t,from){
+  var il=t.k==='map'?'<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">'+['edge','scratch','cluster'].map(function(k,i){return '<div style="text-align:center">'+waferMap(k)+'<div class="cap">'+['Edge ring','Scratch line','Local cluster'][i]+'</div></div>'}).join('')+'</div>':SVG[t.k];
+  show('<h3>'+esc(t.name)+'</h3>'+posHtml(t.pos)+'<div class="illu">'+il+'</div><p class="cap" style="margin-bottom:8px">Schematic, simplified; does not represent a specific tool.'+(t.cap?esc(t.cap):'')+'</p>'
+   +'<div>'+t.kw.map(function(w){return '<span class="tag2">'+esc(w)+'</span>'}).join('')+'</div>'
+   +(t.pre||'')
+   +'<div class="sec"><h4>Use</h4><p>'+esc(t.how)+'</p></div>'
+   +'<div class="sec"><h4>Physical principle</h4>'+(t.physH||'<p>'+esc(t.phys)+'</p>')+'</div>'
+   +(t.extra||'')
+   +'<div class="sec"><h4>Reading the signal</h4><p>'+esc(t.sig)+'</p></div>','--accent',from);
+  $('dlg').style.width='min(760px,100%)';
+}
+/* positions */
+(function(){
+  var TC='The TCAD team in a fab’s R&D department';
+  var EB='The electron-optics and simulation teams of equipment makers (such as Applied Materials and ASML)';
+  var S15=[1,2,3,4,5];
+  var P={
+   band:{s:S15,who:TC+'(such as TSMC’s device and transport simulation)',txt:'TCAD acts mainly on the S1 to S5 process loop. Before a new generation of transistors goes into volume production, the band structure and effective mass of the channel material are computed as input parameters for device simulation.'},
+   negf:{s:S15,who:TC+'(such as TSMC’s device and transport simulation)',txt:'Following the band-structure calculation, computes the current in nanoscale transistors; the results are used to calibrate the model parameters of continuum TCAD.'},
+   proc:{s:S15,who:TC+'(such as TSMC’s Application TCAD)',txt:'Simulates on a computer the structure and doping profile after each step from S1 to S5; the resulting structure is passed to device simulation.'},
+   dev:{s:S15,who:TC+'(such as TSMC’s Application TCAD)',txt:'Uses the structure from process simulation to compute the current-voltage characteristics of the transistor, so that R&D can screen designs before wafers are actually made. Corresponds to “The product: transistors inside a chip” on the first page.'},
+   chamber:{s:[1],who:'Simulation teams at equipment makers (such as Applied Materials’ computational physics positions for plasma and flow), and module and equipment modeling teams in fab R&D (such as TSMC TCAD’s Module and Equipment Modeling)',txt:'Simulates gas flow and temperature distribution inside deposition chambers, with the goal of making the film thickness from S1 thin-film formation more uniform.'},
+   plasma:{s:[1,3],who:'Plasma simulation teams at equipment makers (such as Lam Research and Applied Materials), and module and equipment modeling teams in fab R&D (such as TSMC TCAD’s Module and Equipment Modeling)',txt:'Simulates the plasma and electromagnetic fields inside etch and deposition chambers, predicting the etch rate and sidewall profile in S3, and the uniformity of plasma deposition in S1.'},
+   fem:{s:[],who:'A numerical method shared by multiphysics simulations',txt:'This card does not correspond to a single process step; it is the computational method behind both chamber and column simulations. COMSOL and Ansys, listed in the Applied Materials electron-optics posting, are both built around the finite element method.'},
+   eopt:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'When designing electron-beam metrology and inspection tools, simulates how the column focuses the electron beam into a small and stable spot. The finished tools go to fabs, where they are used as the “Electron-beam metrology” and “Electron-beam inspection” methods in the metrology and inspection row on the first page.'},
+   eint:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'After the electron beam leaves the column and enters the wafer, simulates how electrons scatter inside the material and how many detectable signal electrons are emitted.'},
+   semimg:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'Converts the emitted electrons into an image and predicts how a defect will look; helps interpret images measured with “Electron-beam voltage contrast” under Data Analysis.'},
+   phml:{s:[2,3,5],m:['sem','ebi'],who:EB,txt:'Generates large numbers of images with known answers by simulation to train the algorithms that let the tool classify defects automatically.'}
+  };
+  SIMROWS.forEach(function(r){r.tools.forEach(function(t){if(P[t.k])t.pos=P[t.k]})});
+  var YE='Yield engineers in the fab (YED; ATYED on the advanced-process R&D side)',FA='Materials and failure analysis team (MA/FA)';
+  var D={
+   map:{s:[1,2,3,4,5,6],m:['opt','ebi','ele'],who:YE,txt:'Data from every metrology and inspection step finally come together in the wafer map; from here, yield engineers trace which step the yield loss comes from.'},
+   bf:{s:[1,3,5],m:['opt'],who:YE+'; tools supplied by equipment makers (representative: KLA)',txt:'After almost every critical step (after deposition, etch, CMP and cleaning), tools of this kind scan the whole wafer and output defect coordinates.'},
+   df:{s:[1,3,5],m:['opt'],who:YE+'; tools supplied by equipment makers (representative: KLA)',txt:'Used at the same stages as bright-field inspection; collects only scattered light and is especially sensitive to particles.'},
+   sem:{s:[1,3,5],m:['ebi'],who:YE,txt:'After optical inspection finds defect coordinates, an SEM takes high-resolution images at those locations and classifies them; this is the next step in tracing yield. For how an SEM generates and focuses its electron beam, see “Electron-beam column and electron optics” under Simulation.'},
+   ebi:{s:[3,5],m:['ebi'],who:YE+'; tools supplied by equipment makers (representative: ASML (HMI), Applied Materials)',txt:'Sampled after etch and after contact and via formation to find opens or shorts buried below. For a simulation that predicts the same phenomenon from physical principles, see “SEM image formation and voltage contrast” under Simulation.'},
+   elec:{s:[6],m:['ele'],who:'Test engineers and yield engineers',txt:'Current and voltage are measured at the end of the fab to confirm whether a physical defect really causes the device to fail; yield engineers then match the electrical results with the defect positions.'},
+   fib:{s:[],m:['ma'],who:FA,txt:'Not a fixed process step: when inspection or electrical measurement finds an anomaly and the physical cause must be confirmed, samples are sent from any step. FIB cuts a cross-section at a chosen location and also prepares lamellae for TEM.'},
+   tem:{s:[],m:['ma'],who:FA,txt:'Follows FIB, observing atomic-scale structure, film thickness and interfaces, providing direct evidence to R&D and yield teams.'},
+   sims:{s:[4],m:['ma'],who:FA,txt:'Confirms whether the impurity depth profile after S4 doping meets the design.'},
+   xrd:{s:[1],m:['ma'],who:FA,txt:'Confirms the crystal quality and strain of films grown in S1 (for example epitaxial layers).'}
+  };
+  TOOLS.forEach(function(t){if(D[t.k])t.pos=D[t.k]});
+  var AEW='Application engineers (AE) at equipment, materials and metrology companies';
+  var A={
+   talk:{s:[],who:AEW,txt:'The AE stands between the fab and their own company’s R&D, turns the customer’s problem into an engineering problem, and brings the solution back to the customer. Corresponds to the dashed-box “Equipment-maker AE” in the company structure on the first page.'},
+   sem:{s:[2,3,5],m:['ocd','ovl','sem','opt','ebi'],who:'Application engineers at metrology and inspection equipment makers',txt:'An AE must be able to explain how the tool measures and what it can measure; these tools are those in the metrology and inspection row on the first page.'},
+   support:{s:[1,2,3,4,5],who:'Application engineers at equipment makers, working with the fab’s equipment engineers (EE)',txt:'When a new tool arrives at the fab, the AE introduces and qualifies it together with the fab’s equipment engineers. Corresponds to the equipment EE row below “A wafer’s journey” on the first page; which step is involved depends on the type of tool.'},
+   map:{s:[],who:AEW,txt:'Turns the data measured by the tool into conclusions the customer can understand; the work is the same kind as wafer-map analysis under Data Analysis, only the audience is the customer and one’s own team.'},
+   appdev:{s:[],who:'Application engineers or application scientists at equipment makers',txt:'Develops measurement methods for the customer’s new needs and writes the results up as methods and documents for the customer and one’s own team.'}
+  };
+  TOOLS_C.forEach(function(t){if(A[t.k])t.pos=A[t.k]});
+})();
+/* electron-optics card: extra explanations */
+NEWTOOLS.eopt.extra='<div class="sec"><h4>Parts of the column</h4><ul>'
+ +'<li><b>Electron source (emitter):</b> Emits electrons. The smaller and brighter the source, the smaller the spot the beam can be focused into.</li>'
+ +'<li><b>Accelerating electrode:</b> Accelerates electrons to the required energy with a high voltage (not drawn in the schematic).</li><li><b>Condenser lens:</b> Initially converges the electron beam with a magnetic or electric field and controls the beam current.</li>'
+ +'<li><b>Aperture:</b> Blocks electrons that stray from the central axis, limiting the beam’s angular spread to reduce aberrations.</li>'
+ +'<li><b>Deflector:</b> Steers the electron beam with an electric or magnetic field to scan it line by line over the sample.</li>'
+ +'<li><b>Objective lens:</b> Finally focuses the electron beam onto the sample surface and determines the final spot size.</li></ul></div>'
+ +'<div class="sec"><h4>What the simulation computes</h4><ul>'
+ +'<li><b>Electromagnetic fields and electron trajectories:</b> First compute the electric and magnetic field distributions produced by the lenses and deflectors, then trace the paths of electrons through these fields.</li>'
+ +'<li><b>Aberrations:</b> Spherical aberration means electrons farther from the central axis are focused at a different position; chromatic aberration means electrons with slightly different energies are focused at different positions. Both make the spot larger.</li>'
+ +'<li><b>Space-charge effect:</b> Electrons all carry negative charge; the larger the current and the denser the electrons, the stronger their mutual repulsion, so the spot grows.</li>'
+ +'<li><b>Electrostatic and electromechanical effects:</b> When a voltage is applied to tiny electrode structures, the electrostatic force deforms them slightly; the deformation changes the electric field, which in turn changes the electron trajectories. Electrical and mechanical behavior affect each other, a form of multiphysics coupling (see MEMS below).</li>'
+ +'<li><b>Tolerance and process-window analysis:</b> The dimensions and alignment of parts can never be perfectly exact. The simulation estimates how much the spot size and position shift when these errors vary within a range, and finds the tolerance that still meets specifications, as a basis for manufacturing the parts.</li></ul></div>'
+ +'<div class="sec"><h4>What is MEMS</h4><p>Micro-electro-mechanical systems (MEMS) are micrometer-scale structures made with semiconductor processes (thin-film deposition, lithography, etching) that have both electrical and mechanical functions, such as the accelerometer in a phone or the tilting micromirrors in a projector.</p>'
+ +'<p>In electron-beam tools, multi-beam systems need large numbers of tightly packed tiny electrostatic lenses, deflectors and aperture arrays, which can be made by microfabrication. The job posting only says “MEMS (electrostatic and electromechanical)” and does not specify which components; this is an inference based on common practice in multi-beam systems.</p>'
+ +'<p>Note: the MEMS here are parts inside the tool, not structures on a chip, so they do not correspond to any process step on the first page.</p></div>'
+ +'<div class="sec"><h4>Red labels in the figure: disturbances that affect the beam position</h4><ul>'
+ +'<li><b>Stray magnetic fields (electromagnetic interference, EMI):</b> Magnetic fields from power lines, motors and other equipment outside the column deflect the electron beam, so they must be shielded and their effect evaluated.</li>'
+ +'<li><b>Mechanical and acoustic vibration:</b> Floor vibration, running pumps or sound waves in the environment make the column parts shake slightly, and the beam position jitters with them.</li>'
+ +'<li><b>Thermal-expansion drift:</b> Temperature changes make parts expand and contract, so lens positions and spacings change slowly over time and the electron beam drifts.</li></ul>'
+ +'<p>To position the electron beam at the nanometer level, these effects must be analyzed together; this is why the job posting mentions coupled “electromagnetic, mechanical, thermal and acoustic” analysis.</p></div>';
+/* chain renderer */
+function chainHtml(steps,loop){
+  return '<div class="chain"><div class="cflow">'+steps.map(function(s,i){
+    var one=s.tools.length===1;
+    var inner='<span class="fnum">'+(i+1)+'</span><img alt="" src="'+s.ic+'"><b>'+esc(s.t)+'</b>';
+    var box=one?'<button type="button" class="fbox" style="--c:'+s.c+'" data-tk="'+s.tools[0]._id+'">'+inner+'</button>':'<div class="fbox multi" style="--c:'+s.c+'">'+inner+'</div>';
+    var below='<span class="fd">'+esc(s.d)+'</span>'+(one?'':'<span class="cchips">'+s.tools.map(function(t){return '<button type="button" class="cchip" data-tk="'+t._id+'">'+esc(t.name)+'</button>'}).join('')+'</span>');
+    return (i?'<span class="farr" aria-hidden="true">→</span>':'')+'<div class="fstep">'+box+below+'</div>'}).join('')+'</div>'
+    +(loop?'<div class="dloop"><span>'+esc(loop)+'</span></div>':'')+'</div>';
+}
+var TREG=[];
+function reg(t){if(t._id===undefined){t._id=TREG.length;TREG.push(t)}return t}
+function bindTk(box){Array.prototype.forEach.call(box.querySelectorAll('[data-tk]'),function(b){b.addEventListener('click',function(){openTool(TREG[+b.dataset.tk],b)})})}
+function tk(list,k){return reg(list.filter(function(x){return x.k===k})[0])}
+function daFlowHtml(){
+  var T=function(k){return tk(TOOLS,k)};
+  var cols=[
+   [1,['bf','df','xrd'],'Film thickness (optical metrology)'],
+   [2,[],'Overlay and line-width metrology (CD-SEM)'],
+   [3,['bf','df','ebi'],'Line-width metrology (CD-SEM)'],
+   [4,['sims'],''],
+   [5,['bf','df','ebi'],'Remaining film thickness (optical metrology)'],
+   [6,['elec'],'']
+  ];
+  var h='<h5 class="flowh">① Process steps and the corresponding inspection</h5><p class="tnote">Top: the process steps from the first page; bottom: the inspection used after each step (click a name to see how it works). Gray text marks metrology methods introduced on the first page that are not tools on this page.</p><div class="pflow">'
+   +cols.map(function(c){var st=STEPS[c[0]];return '<div class="pcol"><div class="phead"><img alt="" src="'+stepIc(c[0])+'"><b>S'+c[0]+'</b><span>'+esc(st.n)+'</span></div><div class="pbody">'
+     +c[1].map(function(k){var t=T(k);return '<button type="button" class="cchip" data-tk="'+t._id+'">'+esc(t.name)+'</button>'}).join('')
+     +(c[2]?'<span class="pgray">'+esc(c[2])+'</span>':'')+'</div></div>'}).join('')+'</div>';
+  h+='<h5 class="flowh">② From finding a defect to confirming its cause</h5><p class="tnote">The order of a yield investigation. Materials and failure analysis is not a fixed step; samples are sent from any step when the physical cause must be confirmed.</p>'
+   +chainHtml([
+    {c:'#1e40af',ic:toolIc('map'),t:'Wafer maps and data',d:'Start from the big picture: plot defect and yield data from every station as wafer maps and look for abnormal spatial patterns',tools:[T('map')]},
+    {c:'#0d9488',ic:toolIc('bf'),t:'Optical defect inspection',d:'Scan the whole wafer quickly and output defect coordinates',tools:[T('bf'),T('df')]},
+    {c:'#16a34a',ic:toolIc('ebi'),t:'Electron-beam inspection',d:'Sample to find electrical defects that optics cannot see',tools:[T('ebi')]},
+    {c:'#d97706',ic:toolIc('sem'),t:'SEM defect review',d:'Take high-resolution images at the defect coordinates and classify them',tools:[T('sem')]},
+    {c:'#7c3aed',ic:toolIc('elec'),t:'Electrical measurement',d:'Confirm whether the defect really makes the device fail',tools:[T('elec')]},
+    {c:'#e5484d',ic:methIc('ma'),t:'Materials and failure analysis',d:'Send samples when the physical cause must be confirmed',tools:[T('fib'),T('tem'),T('sims'),T('xrd')],sep:''}
+   ],'↺ After the cause is found, discuss the fix with process, integration and equipment engineers, then confirm the improvement with new inspection data');
+  return h+interHtml();
+}
+function aeFlowHtml(){
+  var T=function(k){return tk(TOOLS_C,k)};
+  return chainHtml([
+   {c:'#1e40af',ic:toolIc('talk'),t:'Customer interface',d:'Understand the customer’s problems and needs',tools:[T('talk')]},
+   {c:'#0d9488',ic:toolIc('sem'),t:'Inspection and metrology principles',d:'Understand how the tool measures and what it can measure',tools:[T('sem')]},
+   {c:'#16a34a',ic:toolIc('support'),t:'On-site support and acceptance',d:'Reproduce the problem, adjust parameters, confirm the specification is met',tools:[T('support')]},
+   {c:'#d97706',ic:toolIc('map'),t:'Data analysis and reporting',d:'Turn the data into conclusions the customer can understand',tools:[T('map')]},
+   {c:'#7c3aed',ic:toolIc('appdev'),t:'Application development',d:'Develop measurement methods and documents for new needs',tools:[T('appdev')]}
+  ],'↺ When the customer raises a new need, return to the customer interface');
+}
+function methHead(ids,label){
+  return '<div class="mhead"><span class="posl">'+esc(label)+'</span><div class="posics">'+METH.map(function(x){return '<span class="pi'+(ids.indexOf(x.id)>=0?' on':'')+'"><img alt="" src="'+methIc(x.id)+'"><small>'+esc(x.n)+'</small></span>'}).join('')+'</div></div>';
+}
+function ebFlowHtml(){
+  var N=NEWTOOLS;
+  return methHead(['sem','ebi'],'Corresponding metrology and inspection')
+   +'<p class="tnote">The four cards below follow the path of the electrons; each simulates one segment of that path (click a card to see how it works):</p>'
+   +chainHtml([
+    {c:'#1e40af',ic:toolIc('eopt'),t:'Electron-beam column and electron optics',d:'The column focuses the beam into a small, stable spot',tools:[reg(N.eopt)]},
+    {c:'#0d9488',ic:toolIc('eint'),t:'Electron-sample interaction',d:'Electrons enter the wafer, scatter and emit signal electrons',tools:[reg(N.eint)]},
+    {c:'#d97706',ic:toolIc('semimg'),t:'SEM image formation and voltage contrast',d:'Signal electrons are converted into an image',tools:[reg(N.semimg)]},
+    {c:'#7c3aed',ic:toolIc('phml'),t:'Physics simulation combined with machine learning',d:'An algorithm judges defects from the image',tools:[reg(N.phml)]}
+   ],null);
+}
+function simTool(k){var t=null;SIMROWS.forEach(function(r){r.tools.forEach(function(x){if(x.k===k)t=x})});return reg(t)}
+function fbtn(t,c,d){return '<button type="button" class="fbox" style="--c:'+c+'" data-tk="'+t._id+'"><img alt="" src="'+toolIc(t.k)+'"><b>'+esc(t.name)+'</b><span class="fd">'+esc(d)+'</span></button>'}
+function tcadFlowHtml(){
+  var S15=[1,2,3,4,5].map(function(i){return '<span class="pi on"><img alt="" src="'+stepIc(i)+'"><small>S'+i+' '+esc(STEPS[i].n)+'</small></span>'}).join('');
+  return '<p class="tnote">TCAD predicts transistor characteristics on a computer before wafers are actually made. Device simulation needs two inputs: the structure of the device and the parameters of the materials (click a card to see how it works).</p>'
+   +'<div class="tflow"><div class="lane"><span class="lanel">Device structure</span><div class="lanein"><div class="posics mini">'+S15+'</div><span class="farr">→</span>'
+   +fbtn(simTool('proc'),'#0d9488','Simulate S1–S5 in sequence to obtain the structure and doping profile')+'<span class="farr">→</span></div></div>'
+   +'<div class="lane"><span class="lanel">Material parameters</span><div class="lanein">'
+   +fbtn(simTool('band'),'#1e40af','Compute band structure and effective mass')+'<span class="farr">→</span>'
+   +fbtn(simTool('negf'),'#7c3aed','Compute nanoscale currents and calibrate model parameters')+'<span class="farr">→</span></div></div>'
+   +'<div class="join">'+fbtn(simTool('dev'),'#d97706','Combine structure and parameters to compute I-V characteristics')+'<p class="tnote" style="margin:6px 0 0">Output: transistor characteristics for R&D to screen designs (corresponds to “The product: transistors inside a chip” on the first page)</p></div></div>';
+}
+function mpFlowHtml(){
+  var ch=simTool('chamber'),pl=simTool('plasma'),fe=simTool('fem');
+  var cols=[[1,[ch,pl],''],[2,[],'Computational lithography (OPC, see S2 on the first page)'],[3,[pl],''],[4,[],'—'],[5,[],'—']];
+  return '<p class="tnote">Multiphysics simulation targets the chambers of process equipment: gas flow, temperature and plasma inside the chamber determine the results of deposition and etching. Top: the process steps from the first page; bottom: the corresponding simulations (click a name to see how it works).</p><div class="pflow" style="grid-template-columns:repeat(5,minmax(0,1fr))">'
+   +cols.map(function(c){var st=STEPS[c[0]];return '<div class="pcol"><div class="phead"><img alt="" src="'+stepIc(c[0])+'"><b>S'+c[0]+'</b><span>'+esc(st.n)+'</span></div><div class="pbody">'
+     +c[1].map(function(t){return '<button type="button" class="cchip" data-tk="'+t._id+'">'+esc(t.name)+'</button>'}).join('')
+     +(c[2]?'<span class="pgray">'+esc(c[2])+'</span>':'')+'</div></div>'}).join('')+'</div>'
+   +'<div class="fembar"><span class="lanel">Shared numerical method</span><button type="button" class="cchip" data-tk="'+fe._id+'">'+esc(fe.name)+'</button><span class="pgray">The simulations above, and those of the electron-beam column, are mostly solved with the finite element method</span></div>';
+}
+var _pickRole=pickRole;
+pickRole=function(id){
+  var before=curRole;_pickRole(id);if(before===id)return;
+  var p=$('rolePanel');
+  if(id==='data'){var b=p.querySelector('#tl2');if(b){b.className='flows';b.innerHTML=daFlowHtml();bindTk(b)}}
+  if(id==='ae'){var b2=p.querySelector('#tl2');if(b2){b2.className='flows';b2.innerHTML=aeFlowHtml();bindTk(b2)}}
+  if(id==='sim'){[['#tr0',tcadFlowHtml],['#tr1',mpFlowHtml],['#tr2',ebFlowHtml]].forEach(function(q){var b3=p.querySelector(q[0]);if(b3){b3.className='flows';b3.innerHTML=q[1]();bindTk(b3)}})}
+};
+
+/* v36 merge column intro into the electron-optics card */
+(function(e){
+  e.name='Electron-beam column and electron optics';
+  e.cap='The column works like the body tube of an optical microscope: an optical microscope focuses light with glass lenses, whereas the column deflects and converges electrons with magnetic or electric fields.';
+  e.pre='<div class="sec"><h4>What is an electron-beam column</h4><p>The electron-beam column is the upright, tube-shaped structure in an electron-beam tool that generates, accelerates, focuses and steers the electron beam; it is named after its vertical cylindrical shape. Electrons scatter off gas molecules, so the whole column must be kept in vacuum; at the bottom of the column is the sample chamber holding the wafer. In the “SEM defect review” schematic under Data Analysis, the part from the electron gun to the objective lens is the column.</p></div>';
+  e.phys='Electron optics focuses electrons with electric and magnetic fields, analogous to lenses in optics; the spot size is limited by aberrations (spherical and chromatic) and the size of the electron source. To position the beam at the nanometer level, various disturbances must also be analyzed (see “Red labels in the figure” below); some systems use tiny electrostatic components made with micro-electro-mechanical systems (MEMS) (see “What is MEMS” below).';
+})(NEWTOOLS.eopt);
+
+/* ====================== v38 Infineon company structure ====================== */
+var IFXJOBS={
+ defect:['Engineer Defect Engineering','Dresden','https://jobs.infineon.com/careers/job/563808972195430?hl=de'],
+ integ:['Engineer Process Integration (Power MOSFET)','Dresden','https://jobs.infineon.com/careers/job/563808972253234?hl=de'],
+ qual:['Quality Engineer for Product Reliability','Budapest','https://jobs.infineon.com/careers/job/563808972316226?domain=infineon.com'],
+ dev:['Staff Engineer Device Analysis','Dresden','https://jobs.infineon.com/careers/job/563808971981111'],
+ rnd:['Senior Engineer R&D (Power Modules)','Warstein','https://jobs.infineon.com/careers/job/563808971883449?hl=de']
+};
+var IFX={
+ segs:[['Automotive','Automotive, ATV','Automotive microcontrollers, smart power devices, automotive Ethernet'],['Power Systems','Power Systems, PS','AI data-center power, industrial automation, grid and renewable energy, EV charging'],['Edge Systems','Edge Systems, ES','IoT, connectivity and sensors']],
+ cols:[
+  {h:'FAB LINE',s:'Volume production',note:'Front-end fabs make the chips (for example the Smart Power Fab in Dresden); back-end plants handle packaging and test.',roles:[
+   {n:'Quality and reliability engineer',e:'Quality Managers/Engineers',o:'Quality & Excellence',d:'From product idea to release for volume production, defines qualification plans for new product generations and carries out reliability tests to ensure products meet quality requirements when they enter volume production.',j:'qual'},
+   {n:'Defect engineering',e:'Defect Engineering',d:'Uses data analysis and inspection techniques to find process weaknesses and root causes of failures, and defines inspection steps along the chip production process; the work spans development projects and volume production. Equivalent to the yield engineers (YED/ATYED) on the first page.',j:'defect'},
+   {n:'Process engineer',e:'Process Engineers',o:'Manufacturing & Operations',d:'Continuously improves volume-production processes; equivalent to the process engineers (PE) on the first page.'},
+   {n:'Maintenance and equipment engineers',e:'Maintenance & Equipment Engineers',o:'Manufacturing & Operations',d:'Keeps equipment running smoothly and adapts it to production demand; equivalent to the equipment engineers (EE) on the first page.'}]},
+  {h:'RD OFFICE',s:'R&D',note:'Infineon designs its own products, so its R&D covers process technology, devices, modules and circuit design.',roles:[
+   {n:'Process integration',e:'Process Integration',d:'Develops and optimizes integration concepts and process modules for Power MOSFET technologies, drives them from concept to final qualification, and confirms technology performance through experiments. Equivalent to the integration engineers (PIE) on the first page.',j:'integ'},
+   {n:'Device analysis',e:'Device Analysis',d:'Designs test structures for LDMOS transistors in Smart Power technologies, sets up electrical tests and analyzes the results; serves as the interface between process integration, device simulation, reliability and failure analysis.',j:'dev'},
+   {n:'Power module R&D',e:'R&D',d:'Plans and carries out electrical and thermal characterization of power devices and modules, plans the build-up of prototypes in a sample lab, and analyzes data to support technical decisions.',j:'rnd'},
+   {n:'Technology development engineers',e:'Technology Development Engineers',o:'Research & Development',d:'Develop new materials and technologies.'},
+   {n:'Failure analysis engineers',e:'Failure Analysis Engineers',o:'Quality & Excellence',d:'Track down the cause of every failure; the first page places materials and failure analysis on the R&D side, and this page follows that.'},
+   {n:'Product engineers',e:'Product Engineers',o:'Research & Development',d:'Turn product ideas into concrete product specifications.'},
+   {n:'Test development engineers',e:'Test Development Engineers',o:'Research & Development',d:'Develop product tests and act as the quality gate for products.'},
+   {n:'Circuit design and verification',e:'Digital / Analog & Mixed-Signal Design, Functional Verification',o:'Research & Development',d:'Design chip circuits and verify their function.'}]}
+ ]
+};
+function openIfx(from){
+  var role=function(r){var jb=r.j?IFXJOBS[r.j]:null;
+    return '<div class="ifxr">'+'<b>'+esc(r.n)+'</b><small>'+esc(r.e)+(r.o?' | Official category: '+esc(r.o):'')+'</small><span>'+esc(r.d)+'</span>'
+     +(jb?'<a class="tgj" href="'+jb[2]+'" target="_blank" rel="noopener">Job: '+esc(jb[0])+' ('+esc(jb[1])+') ↗</a>':'')+'</div>'};
+  var h='<h3>Infineon’s internal company structure</h3>'
+   +'<p style="margin:0 0 8px">Infineon is an integrated device manufacturer (IDM): it designs its own chips, makes them in its own fabs, packages and tests them, and sells them under its own brand. The value chain on the first page places it in the “IC design” column, but it actually spans design, wafer fabrication, and packaging and test.</p>'
+   +'<div class="sec"><h4>Three business segments (after the 2026 reorganization)</h4><div class="ifxseg">'+IFX.segs.map(function(s){return '<div><b>'+esc(s[0])+'</b><small>'+esc(s[1])+'</small><span>'+esc(s[2])+'</span></div>'}).join('')+'</div>'
+   +'<p class="tnote" style="margin:6px 0 0">Segments are divided by “who the products are sold to”; the functional structure below is divided by “what the work is”, and the same function appears in every segment.</p></div>'
+   +'<div class="sec"><h4>Functional structure</h4><p class="tnote" style="margin:0 0 8px">Follows the volume-production and R&D sides of the “Company structure” on the first page. Roles and “official categories” come from the team categories on Infineon’s careers page; every role with a red job link has an actual job posting close to my background, and its placement is judged from the posting. Customer-facing roles such as application engineers serve many different products and are omitted here.</p><div class="ifxmap">'+IFX.cols.map(function(c){return '<section class="bld"><h2>'+esc(c.h)+' <small>'+esc(c.s)+'</small></h2>'
+     +c.roles.map(role).join('')+'<p class="tnote" style="margin:0">'+esc(c.note)+'</p></section>'}).join('')+'</div></div>'
+   +'<div class="sec"><h4>How Infineon differs from TSMC</h4><table class="mt"><thead><tr><th></th><th>Infineon</th><th>TSMC</th></tr></thead><tbody>'
+   +[['Business model','Integrated device manufacturer (IDM): designs and manufactures, and sells under its own brand','Pure-play foundry: manufactures only for customers and has no chips under its own brand'],
+     ['Main products','Power semiconductors (MOSFETs, IGBTs, diodes, SiC and GaN devices), microcontrollers, sensors, security chips','Logic chips made for customers such as Apple and NVIDIA, plus specialty processes such as image sensors, RF and power management'],
+     ['Process focus','Power and specialty processes: high voltage, vertical structures, thin wafers, SiC and GaN materials; shrinking line width is not the main goal','Advanced logic processes: continually shrinking transistors (FinFET, GAA nanosheets)'],
+     ['Value-chain coverage','Design, front-end wafer fabrication, back-end packaging and test, mostly in-house','Mainly front-end wafer fabrication, plus advanced packaging'],
+     ['Relationship between the two','Next-generation AURIX automotive microcontrollers are manufactured by TSMC in a 28 nm process; holds 10% of ESMC, the joint-venture fab in Dresden','Main shareholder of ESMC (70%); Bosch, Infineon and NXP hold 10% each']
+    ].map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p class="tnote" style="margin:6px 0 0">Infineon’s Smart Power Fab in Dresden began ramping up volume production in summer 2026.</p></div>'
+   +'<div class="sec">'
+   +'<p class="tnote" style="margin:4px 0 0">Source of team categories: <a href="https://www.infineon.com/careers/teams" target="_blank" rel="noopener">Infineon careers: Teams ↗</a></p></div>';
+  show(h,'--accent',from);$('dlg').style.width='min(980px,100%)';
+}
+(function(){Array.prototype.forEach.call(document.querySelectorAll('.coclk'),function(b){b.addEventListener('click',function(){openIfx(b)})})})();
+
+/* ====================== v39 step interactions + power devices ====================== */
+function interHtml(){
+  var cx=[68,184,300,416,532],nm=['S1 Thin film','S2 Lithography','S3 Etch','S4 Doping','S5 Planarize'];
+  var s='<svg class="intsvg" viewBox="0 0 600 230" role="img" aria-label="Interactions between process steps"><defs><marker id="iah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e5484d"/></marker></defs>';
+  cx.forEach(function(c,i){s+='<rect x="'+(c-52)+'" y="95" width="104" height="40" fill="var(--floor)" stroke="var(--line)" stroke-width="2"/><text x="'+c+'" y="120" text-anchor="middle" class="it">'+nm[i]+'</text>'});
+  var arc=function(d,lx,ly,lab){return '<path d="'+d+'" fill="none" stroke="#e5484d" stroke-width="2" marker-end="url(#iah)"/><text x="'+lx+'" y="'+ly+'" text-anchor="middle" class="il">'+lab+'</text>'};
+  s+=arc('M68 93 Q126 58 182 93',126,89,'①');
+  s+=arc('M68 93 Q242 -8 414 93',242,24,'④ High-temperature steps of the next layer');
+  s+=arc('M300 137 Q184 190 70 137',184,180,'② next layer');
+  s+=arc('M532 137 Q358 245 186 137',358,214,'③ next layer');
+  s+='</svg>';
+  var L=[['①','Film stress → lithography alignment','Films deposited in S1 carry stress that slightly bows the wafer, so in S2 the pattern no longer aligns with the previous layer (overlay error).'],
+   ['②','Etch residue → next film','If residues left by S3 are not fully cleaned, the next S1 film adheres poorly or forms defects at the interface.'],
+   ['③','Uneven polishing → next lithography','If S5 chemical mechanical polishing (CMP) causes dishing, the surface is uneven and parts of the next S2 exposure fall out of focus.'],
+   ['④','Thermal budget → doping profile','Impurities introduced in S4 keep diffusing during later high-temperature steps (such as high-temperature film growth and annealing), changing the junction depth; the accumulated heat of all steps (the thermal budget) must therefore be planned together.']];
+  return '<h5 class="flowh">③ Interactions between steps</h5><p class="tnote">Although the process runs one step after another, earlier steps affect later results, and a problem is often not found at the step where it occurs. Red arrows show the direction of influence.</p>'
+   +'<div class="intbox">'+s+'<ol class="intl">'+L.map(function(r){return '<li><b>'+r[0]+' '+esc(r[1])+': </b>'+esc(r[2])+'</li>'}).join('')+'</ol>'
+   +'<p class="tnote" style="margin:6px 0 0">A defect found at step N may therefore have its cause in an earlier step. The “knowledge of semiconductor manufacturing processes and their interactions” required in Defect Engineering job postings refers to exactly this ability.</p></div>';
+}
+function pwSvgs(){
+  var sv=function(body,lab){return '<svg class="pwsvg" viewBox="0 0 240 210" role="img" aria-label="'+lab+'cross-section">'+body+'</svg>'};
+  var L=function(x,y,s,a){return '<text x="'+x+'" y="'+y+'"'+(a?' text-anchor="'+a+'"':'')+'>'+s+'</text>'};
+  var top='<rect x="20" y="34" width="150" height="34" fill="#fca5a5"/>'+L(178,56,'p body')+'<rect x="20" y="34" width="50" height="10" fill="#93c5fd"/><rect x="100" y="34" width="70" height="10" fill="#93c5fd"/>'+L(40,43,'n⁺','middle')+'<rect x="70" y="30" width="30" height="66" fill="#fde68a" stroke="#64748b" stroke-width="3"/>'+L(85,66,'Gate','middle')+L(85,80,'G','middle')+'<rect x="20" y="68" width="150" height="72" fill="#bfdbfe" opacity=".6"/>'+L(178,108,'n⁻ drift region');
+  return {
+   mos:sv('<rect x="20" y="20" width="150" height="14" fill="#94a3b8"/>'+L(178,31,'Source S')+top+'<rect x="20" y="140" width="150" height="26" fill="#3b82f6" opacity=".7"/>'+L(178,157,'n⁺ substrate')+'<rect x="20" y="166" width="150" height="12" fill="#94a3b8"/>'+L(178,176,'Drain D')+'<path d="M66 50 V160" stroke="#e5484d" stroke-width="2.5" marker-end="url(#pah)"/>'+L(20,200,'Electrons flow down the channel along the gate sidewall','start'),'Power MOSFET'),
+   igbt:sv('<rect x="20" y="20" width="150" height="14" fill="#94a3b8"/>'+L(178,31,'Emitter E')+top+'<rect x="20" y="140" width="150" height="26" fill="#f87171"/>'+L(178,157,'p⁺ collector layer')+'<rect x="20" y="166" width="150" height="12" fill="#94a3b8"/>'+L(178,176,'Collector C')+'<path d="M120 150 V80" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#pah2)"/>'+L(20,200,'The back-side p⁺ layer injects holes (purple)','start'),'IGBT'),
+   dio:sv('<rect x="20" y="20" width="150" height="14" fill="#94a3b8"/>'+L(178,31,'Anode A')+'<rect x="20" y="34" width="150" height="30" fill="#f87171"/>'+L(178,53,'p⁺')+'<rect x="20" y="64" width="150" height="76" fill="#bfdbfe" opacity=".6"/>'+L(178,106,'n⁻ drift region')+'<rect x="20" y="140" width="150" height="26" fill="#3b82f6" opacity=".7"/>'+L(178,157,'n⁺')+'<rect x="20" y="166" width="150" height="12" fill="#94a3b8"/>'+L(178,176,'Cathode K')+'<path d="M95 44 V160" stroke="#e5484d" stroke-width="2.5" marker-end="url(#pah)"/>'+L(20,200,'Lets current pass in one direction only','start'),'Power diode')
+  };
+}
+var PWDEFS='<svg width="0" height="0" style="position:absolute"><defs><marker id="pah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e5484d"/></marker><marker id="pah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker><marker id="mah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e5484d"/></marker></defs></svg>';
+function openPower(from){
+  var f=pwSvgs();
+  var cards=[
+   {n:'Power MOSFET',e:'Power MOSFET',f:f.mos,d:'Works on the same principle as the planar MOSFET in Section 2: the gate voltage switches the channel on or off. The difference is the structure: the gate sits in a trench, current flows vertically through the chip, and a lightly doped drift region underneath withstands high voltage. It switches fast and is common in power conversion at tens to hundreds of volts.'},
+   {n:'IGBT',e:'Insulated-Gate Bipolar Transistor',f:f.igbt,d:'Insulated-gate bipolar transistor: the upper half is the same as a power MOSFET, with an extra p⁺ layer on the back. When on, this layer injects holes that greatly increase the conductivity of the drift region, so it can withstand higher voltages (about 600 V to 6.5 kV) and larger currents. Used in motor inverters of electric vehicles, trains and wind turbines.'},
+   {n:'Power diode',e:'Power Diode',f:f.dio,d:'Made of p-type and n-type regions, it lets current pass in one direction only. Used to convert alternating to direct current (rectification), and connected in parallel with an IGBT or MOSFET to give the current a path at the moment the switch turns off (freewheeling). Silicon carbide (SiC) Schottky diodes are common in server power supplies.'}];
+  var h=PWDEFS+'<h3>Power devices: switches that control electrical energy</h3>'
+   +'<p style="margin:0 0 8px">Power semiconductors do not compute; they switch large currents and withstand high voltages to convert electrical energy into the form needed, for example turning a battery’s direct current into alternating current for a motor, or turning grid alternating current into the direct current a server needs. The biggest difference from the logic transistors in Section 2 is that current flows <b>vertically</b> through the whole chip. The cross-sections are schematic and not to scale.</p>'
+   +'<div class="pwcards">'+cards.map(function(c){return '<article class="prod pwc"><h3>'+esc(c.n)+'</h3><p class="zh">'+esc(c.e)+'</p>'+c.f+'<p class="kind">'+esc(c.d)+'</p></article>'}).join('')+'</div>'
+   +'<div class="sec"><h4>Logic transistors versus power devices</h4><table class="mt"><thead><tr><th></th><th>Logic transistors (planar MOSFET, FinFET, GAA)</th><th>Power devices (power MOSFET, IGBT, diode)</th></tr></thead><tbody>'
+   +[['Use','Processing information: computing, storage and signal processing','Controlling and converting electrical energy: switching large currents'],['Voltage and current','About 1 V, microamperes','Tens to thousands of volts, a few to thousands of amperes'],['Current direction','Laterally along the chip surface','Mostly vertically through the whole chip'],['Number per chip','Billions','One or a few, with a large area'],['Process focus','Shrinking dimensions','High-voltage structures, wafer thinning, back-side processing, and materials such as silicon carbide (SiC) and gallium nitride (GaN)']].map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'}).join('')+'</tbody></table></div>';
+  show(h,'--accent',from);$('dlg').style.width='min(980px,100%)';
+}
+function openMems(from){
+  var L=function(x,y,s,a,c){return '<text x="'+x+'" y="'+y+'"'+(a?' text-anchor="'+a+'"':'')+(c?' class="'+c+'"':'')+'>'+s+'</text>'};
+  var rel='<svg class="pwsvg" viewBox="0 0 520 200" role="img" aria-label="The release step in surface micromachining">'
+   +L(130,16,'① Before release','middle','mh')+L(390,16,'② After release: the structure is suspended and can move','middle','mh')
+   +'<rect x="20" y="150" width="220" height="30" fill="#cbd5e1"/>'+L(130,170,'Silicon substrate','middle')
+   +'<rect x="60" y="138" width="140" height="12" fill="#94a3b8"/>'+L(130,148,'Fixed electrode','middle')
+   +'<rect x="40" y="96" width="180" height="42" fill="#fde68a"/>'+L(130,121,'Sacrificial layer (SiO₂)','middle')
+   +'<rect x="20" y="96" width="20" height="54" fill="#64748b"/>'+'<rect x="40" y="76" width="180" height="20" fill="#60a5fa"/>'+L(130,90,'Movable structure (polysilicon)','middle')
+   +'<rect x="280" y="150" width="220" height="30" fill="#cbd5e1"/>'+L(390,170,'Silicon substrate','middle')
+   +'<rect x="320" y="138" width="140" height="12" fill="#94a3b8"/>'
+   +'<rect x="280" y="96" width="20" height="54" fill="#64748b"/>'+L(290,62,'Anchor','middle')+'<path d="M290 66 V92" stroke="var(--ink)" stroke-width="1.5"/>'
+   +'<rect x="300" y="76" width="180" height="20" fill="#60a5fa"/>'
+   +'<path d="M455 100 V134" stroke="#e5484d" stroke-width="2" marker-end="url(#mah)" marker-start="url(#mah)"/>'+L(446,121,'Gap d → capacitance C','end','ml')
+   +'<path d="M232 112 H270" stroke="var(--ink)" stroke-width="2" marker-end="url(#mah)"/>'+L(250,104,'Etch sacrificial layer','middle','ms')
+   +'</svg>';
+  var rows=[['Accelerometer','Screen rotation in phones, car airbags','A suspended proof mass is displaced by acceleration, changing its capacitance to the fixed electrode'],
+   ['Gyroscope','Image stabilization in phones, navigation','A continuously vibrating mass is pushed sideways by the Coriolis force when the device rotates'],
+   ['Pressure sensor','Tire-pressure monitoring, barometers','A membrane bends under pressure, changing capacitance or resistance'],
+   ['Microphone','Phones, earphones','A membrane vibrates with sound waves, changing its capacitance to a back plate']];
+  var h=PWDEFS+'<h3>MEMS sensors</h3>'
+   +'<p style="margin:0 0 8px">Micro-electro-mechanical systems (MEMS) sensors are micrometer-scale movable mechanical structures, such as suspended masses or membranes, made with semiconductor processes, that convert physical quantities such as acceleration, rotation, pressure or sound into electrical signals.</p>'
+   +'<div class="sec"><h4>How movable structures are made</h4><p>The steps are the same as in the process on the first page: thin-film formation, lithography and etching. The key is one extra step, “release”: a sacrificial layer is first laid under the structure and finally removed by etching, so the structure above becomes suspended and can move; this is called surface micromachining. Another approach etches cavities and membranes deep from the back of the wafer, called bulk micromachining, often using the deep-etch process described in the etch table on the first page as “alternating etch and sidewall protection”.</p>'+rel+'<p class="cap" style="margin:0">Schematic, simplified, not to scale.</p></div>'
+   +'<div class="sec"><h4>How motion becomes an electrical signal</h4><p>The most common method is capacitive readout: the movable structure and a fixed electrode form a capacitor; when the gap d between them changes, the capacitance C changes, and a readout circuit next to it converts the change in capacitance into a voltage signal.</p></div>'
+   +'<div class="sec"><h4>Common MEMS sensors</h4><table class="mt"><thead><tr><th>Sensor</th><th>Use</th><th>Principle</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p class="cap" style="margin:6px 0 0">Representative companies: Bosch (accelerometers, gyroscopes, etc.), Infineon (MEMS microphones, pressure sensors).</p></div>'
+   +'<div class="sec"><h4>Connection to the second page</h4><p>The MEMS mentioned in “Electron-beam column and electron optics” on the second page are tiny electrostatic components inside electron-beam tools, not sensors; what they have in common is that both are microstructures made with semiconductor processes that can be driven or deformed by electric fields.</p></div>'
+   +'<div class="sec"><h4>Other sensor and optoelectronic devices</h4><ul><li><b>CMOS image sensors:</b> In each pixel, a photodiode converts light into charge, which transistors then read out; used in phone and automotive cameras.</li><li><b>Light-emitting diodes (LEDs) and laser diodes:</b> Convert electrical energy into light.</li></ul></div>';
+  show(h,'--accent',from);$('dlg').style.width='min(860px,100%)';
+}
+(function(){
+  var box=$('pwr');if(!box)return;
+  var cats=[['Logic','Logic','Processors, AI accelerators, phone systems-on-chip','TSMC (foundry), Intel'],
+   ['Memory','Memory','DRAM, NAND flash','Samsung, SK hynix, Micron'],
+   ['Analog & mixed-signal','Analog & Mixed-Signal','Amplifiers, analog-to-digital converters, power-management ICs','Texas Instruments, Analog Devices, Infineon'],
+   ['RF','Radio Frequency, RF','Transceivers for phones and wireless communication, automotive radar chips','Qualcomm, Infineon'],
+   ['Power','Power','Power MOSFETs, IGBTs, diodes','Infineon, onsemi, Mitsubishi Electric','pw'],
+   ['Sensors & optoelectronics','Sensors & Optoelectronics','MEMS sensors, image sensors, LEDs','Bosch, Sony, Infineon','mems']];
+  var ans='<p style="margin:0 0 8px">The three transistors in Section 2 are designed to fit as many logic switches as possible onto one chip. The same semiconductor principles (p-type and n-type regions, a channel controlled by voltage) are also made into devices with different purposes. By purpose, semiconductor devices fall roughly into the following categories (click “Power” and “Sensors & optoelectronics” for an introduction):</p>'
+   +'<table class="mt"><thead><tr><th>Category</th><th>Representative devices</th><th>Representative companies</th></tr></thead><tbody>'+cats.map(function(c){var nm=c[4]?'<button type="button" class="coname" data-app="'+c[4]+'">'+esc(c[0])+'</button>':'<b>'+esc(c[0])+'</b>';return '<tr><td>'+nm+'<br><small>'+esc(c[1])+'</small></td><td>'+esc(c[2])+'</td><td>'+esc(c[3])+'</td></tr>'}).join('')+'</tbody></table>'
+   +'<p class="cap" style="margin:6px 0 0">TSMC mainly manufactures logic chips as a foundry, but also offers specialty processes such as image sensors, RF and power management (BCD processes); Infineon’s products span power, analog, RF and sensing. Companies are examples, not a ranking.</p>';
+  box.className='qs';
+  box.innerHTML='<div class="qbox"><button type="button" aria-expanded="false" aria-controls="qaApp"><span class="q">?</span><span>Applications: different devices</span></button><div class="a" id="qaApp" hidden>'+ans+'</div></div>';
+  var bt=box.querySelector('button'),an=box.querySelector('.a');
+  bt.addEventListener('click',function(){var o=an.hidden;an.hidden=!o;bt.setAttribute('aria-expanded',o?'true':'false')});
+  an.querySelectorAll('[data-app]').forEach(function(b){b.addEventListener('click',function(){(b.dataset.app==='pw'?openPower:openMems)(b)})});
+})();
+
+function tl2(t){var m=String(t).match(/^(.*?)（(.*)）$/);return m?esc(m[1])+'<br><span class="en2">'+esc(m[2])+'</span>':esc(t)}
 
 /* ====================== PART 2: skill detail modals ====================== */
 var IC2={
@@ -1860,11 +2309,11 @@ var ITEMS={meas:[
    ['How an ion pump works','<p>The ion pump (sputter-ion pump) has no moving parts and is the pump most commonly used on ultra-high-vacuum chambers. It works in four steps:</p><ol><li><b>Magnetic field:</b> Permanent magnets outside the chamber produce a field of about 0.1 T, making electrons move along spiral paths and stay in the anode cylinder for a long time.</li><li><b>Discharge:</b> After roughing down to a low enough pressure, a high voltage of several thousand volts is applied between the anode and the titanium cathode, forming a cold-cathode (Penning) discharge, and the electrons form an electron cloud inside the anode cylinder.</li><li><b>Ionization:</b> Gas molecules enter the electron cloud, are hit by electrons and ionized into positive ions, and are then accelerated by the electric field into the cathode.</li><li><b>Capture:</b> Ions strike the titanium cathode and sputter titanium atoms, forming a fresh titanium film on nearby surfaces. Reactive gases (nitrogen, oxygen, hydrogen, etc.) react with the titanium film and are adsorbed (chemical); noble-gas ions are driven directly into the cathode and buried there.</li></ol><p><b>Diode and triode types</b></p><ul><li><b>Diode:</b> The anode cylinder is sandwiched between two titanium cathodes, the simplest structure. The drawback is that buried noble gas is re-released during later sputtering, so the ability to pump noble gases gradually worsens.</li><li><b>Triode:</b> The cathode is made as a grid, ions strike at oblique angles, and sputtering efficiency is higher; the sputtering surface is separated from the film-forming surface, so captured noble gas is not easily re-released, and pumping of argon and other noble gases is more stable.</li></ul><p>There is also a modified diode (noble diode) with one titanium and one tantalum cathode, likewise used to improve noble-gas pumping.</p>'],
    ['bake-out','<p>The chamber usually needs heating (bake-out) to drive off water vapor adsorbed on the chamber walls before ultra-high vacuum can be reached.</p>'],
    ['Pressure monitoring','<p>Pressure is monitored with vacuum gauges: Pirani gauges for the roughing stage, and cold-cathode or ion gauges for the high- and ultra-high-vacuum stages.</p>']]},
-  {k:'lock',n:'Sample transfer and storage: load-lock and glovebox',kw:['load-lock','glovebox','vacuum transfer'],secs:[
+  {k:'lock',n:'Load-lock and glovebox',kw:['load-lock','glovebox','vacuum transfer'],secs:[
    ['Purpose','<p>Allows samples to be sent into the measurement chamber or stored temporarily without touching air and without breaking the vacuum of the main chamber.</p>'],
    ['Procedure','<p><b>Load-lock</b></p><ol><li>Put the sample holder into a small-volume load-lock.</li><li>Pump down the load-lock separately.</li><li>When the pressure reaches the set value, open the gate valve.</li><li>A transfer rod moves the sample into the preparation chamber or the manipulator of the main chamber; the sample can also be stored temporarily in an ultra-high-vacuum storage chamber to await measurement.</li></ol><p>The main chamber therefore always remains in ultra-high vacuum and does not need to be pumped down and baked again for every sample change.</p><p style="margin-top:2em"><b>Glovebox</b></p><ol><li>The glovebox is filled with inert gas (argon or nitrogen), with oxygen and water vapor held at very low concentrations.</li><li>Samples that are air-sensitive, easily oxidized or hygroscopic are unpacked, mounted on the sample holder and stored temporarily in the glovebox.</li><li>They are then sent to the load-lock in a sealed vacuum suitcase, never touching air along the way.</li></ol>']]}
  ],cal:[
-  {k:'cal',n:'Calibration and data quality',kw:['Beam alignment','Energy reference','Fermi edge of gold','Normalization'],secs:[
+  {k:'cal',n:'Energy calibration and data quality',kw:['Beam alignment','Energy reference','Fermi edge of gold','Normalization'],secs:[
    ['Why calibration is needed','<p>A spectrum has energy on the horizontal axis and intensity on the vertical axis, and both are affected by the state of the instrument: the light spot may drift off the sample, the photon energy output by the beamline drifts slightly, and the intensity of the incident light changes with time. Without calibration, spectra measured at different times cannot be compared with each other, nor with calculations. Measurements in semiconductor manufacturing likewise rely on reference standards and regular calibration, for the same reason.</p>'],
    ['1. Beam alignment (a step I performed)','<p>Before measuring, find the position where the light is most concentrated and the signal strongest (optimize): observe the signal on the spatial distribution map of the detector, adjust the position first with the coarse knob (0.02 mm per division) and then the fine knob (0.002 mm per division), until the intensity is maximum. If the light does not hit the sample, for example hitting the post that holds the sample, the spectrum shows extra peaks that do not belong to the sample.</p><p>For alignment, choose a core-level peak close to the target energy range as the reference, and estimate its central kinetic energy from energy conservation:</p><div class="eq">E<sub>kin</sub> = hν − E<sub>B</sub> − Φ</div><p>For example, with photon energy 550 eV, the Te 4d peak (binding energy about 41 eV) as reference and an instrument work function of about 3 eV, the central kinetic energy is about 550 − 41 − 3 = 506 eV.</p>'],
    ['2. Energy reference: the Fermi edge of gold (a step I performed)','<p>A metal has a clear boundary of occupation at the Fermi level, called the Fermi edge. Gold and the sample are both in electrical contact with the analyzer and their Fermi levels are aligned, so the Fermi edge of gold can serve as the common energy zero.</p><ol><li>Measure a gold reference, fit the Fermi edge with the Fermi distribution function, and find the kinetic energy corresponding to the Fermi level.</li><li>Enter this kinetic energy in the measurement settings, and the kinetic energy of the sample is then converted to binding energy with the Fermi level as zero.</li><li>During photoemission measurements, the Fermi edge of gold is remeasured about every 2 hours, and also once at the start and once at the end of a measurement set, to confirm that the energy has not drifted.</li></ol><p>The gold reference is reused, so its surface is cleaned by argon-ion sputtering and then heated to restore a flat surface.</p>'],
@@ -1872,7 +2321,7 @@ var ITEMS={meas:[
    ['4. Live judgment of data quality (steps I performed)','<ul><li><b>Repeated scans:</b> Each data set is scanned 8 times and averaged. The relative size of random noise is roughly inversely proportional to the square root of the number of scans, and the number of scans is usually 2, 4, 8 or 16.</li><li><b>Detector saturation:</b> The reading limit of each CCD pixel is 255; near saturation the signal is no longer proportional to the light intensity and peaks become lower. The same measurement set should therefore keep the same degree of saturation as far as possible.</li><li><b>Consistency of polarization measurements:</b> XAS is measured alternating between horizontal and vertical linear polarization (HVVHHVVH); spectra of the same polarization should overlap each other, and are then averaged and subtracted to obtain the linear dichroism (LD): LD = LH − LV.</li><li><b>Charging:</b> After electrons are knocked out of an insulating sample, if it is not in good contact with the sample holder, the electrons cannot be replenished, the surface charges positively, the peak positions shift, and repeated spectra no longer overlap. When preparing samples, the film was connected to the conductive layer of the sample holder with stainless-steel wire; another approach recorded in my notes is to measure with lower-energy light.</li><li><b>Is the reference correct:</b> Confirm that the reference spectrum used matches the conditions of the measurement.</li></ul>'],
    ['My role','<p>What I actually did was beam alignment, measuring the Fermi edge of gold, and judging data quality during measurements. Adjusting the energy resolution with gratings and slits and setting the vacuum-system parameters were handled by other members of the end station, and I only recorded the principles in my notes.</p>']]}
  ]};
-function itemBtn(grp,i){var t=ITEMS[grp][i];return '<button type="button" class="itm" data-g="'+grp+'" data-i="'+i+'">'+icImg(t.k,64)+'<b>'+esc(t.n.replace(/（[^（]*?, ([^，）]+)）/,'($1)'))+'</b><span>Click the diagram to see how it works</span></button>'}
+function itemBtn(grp,i,bare){var t=ITEMS[grp][i];var nm=esc(t.n.replace(/（[^（]*?, ([^，）]+)）/,'($1)'));if(bare)nm=nm.replace(' (','<br> (');return '<button type="button" class="itm'+(bare?' bare':'')+'" data-g="'+grp+'" data-i="'+i+'">'+icImg(t.k,64)+'<b>'+nm+'</b>'+(bare?'':'<span>Click the diagram to see how it works</span>')+'</button>'}
 function openItem(grp,i,from){
   var t=ITEMS[grp][i];
   show('<h3>'+esc(t.n)+'</h3>'+(t.figs?'<div class="wfigs n'+t.figs.length+'">'+t.figs.map(function(f){return '<figure class="wfig'+(f[4]?' '+f[4]:'')+'"><img src="'+f[0]+'" alt="'+f[1]+'"><figcaption><b>'+f[1]+'</b> '+f[2]+'<span class="src">'+f[3]+'</span></figcaption></figure>'}).join('')+'</div>':'<div class="ic2big">'+icImg(t.k,160)+'</div>')+'<div>'+t.kw.map(function(w){return '<span class="tag2">'+esc(w)+'</span>'}).join('')+'</div>'
@@ -1909,7 +2358,7 @@ function dflowHtml(){
 function openSkill(k,from){
   var h;
   if(k==='sim'){
-    h='<h3>Simulation: modeling quantum systems</h3><figure class="wfig mf"><img src="img/sim_overview.jpg" alt=""><figcaption>Two approximations of the many-body problem: DFT treats each electron as moving independently in the effective potential formed by the other electrons (single-particle approximation); DMFT keeps the interaction between electrons on the same site and treats the surroundings as an electron bath (many-body approximation). <span class="src">Figure: from my doctoral thesis</span></figcaption></figure><p style="margin:0 0 8px"><b>Purpose and method:</b> By simulating different models and levels of approximation, we can compare the computed physical quantities with experiment and thereby verify the mechanism behind.</p>'
+    h='<h3>Simulation: quantum systems</h3><figure class="wfig mf"><img src="img/sim_overview.jpg" alt=""><figcaption>Two approximations of the many-body problem: DFT treats each electron as moving independently in the effective potential formed by the other electrons (single-particle approximation); DMFT keeps the interaction between electrons on the same site and treats the surroundings as an electron bath (many-body approximation). <span class="src">Figure: from my doctoral thesis</span></figcaption></figure><p style="margin:0 0 8px"><b>Purpose and method:</b> By simulating different models and levels of approximation, we can compare the computed physical quantities with experiment and thereby verify the mechanism behind.</p>'
      +'<div class="sec"><h4>Packages and tools</h4><div>'+PKGS.map(function(w){return w[1]?'<a class="tag2 lk" href="'+w[1]+'" target="_blank" rel="noopener">'+esc(w[0])+' ↗</a>':'<span class="tag2">'+esc(w[0])+'</span>'}).join('')+'</div></div>'
      +'<div class="sec"><h4>Models (click to read more)</h4>'+chipRow(MODELS,'mod')+'</div>'
      +'<div class="sec"><h4>Approximation methods (click to read more)</h4>'+chipRow(METHODS,'app')+'</div>'
@@ -1919,11 +2368,10 @@ function openSkill(k,from){
      +dflowHtml()
      +'<table class="mt"><thead><tr><th>Skill</th><th>Example</th></tr></thead><tbody>'+DA.map(function(r){return '<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</tbody></table>';
   }else{
-    h='<h3>Experiment & Collaboration: measurement experience at a synchrotron center</h3>'
-     +'<div class="sec"><h4>Measurement methods (click a diagram to see how it works)</h4><div class="itms">'+ITEMS.meas.map(function(_,i){return itemBtn('meas',i)}).join('')+'</div></div>'
-     +'<div class="sec"><h4>Experimental platform: light source and vacuum (click a diagram to see how it works)</h4><div class="itms">'+ITEMS.plat.map(function(_,i){return itemBtn('plat',i)}).join('')+'</div></div>'
-     +'<div class="sec"><h4>Calibration and data quality (click a diagram to see how it works)</h4><div class="itms">'+ITEMS.cal.map(function(_,i){return itemBtn('cal',i)}).join('')+'</div></div>'
-     +'<div class="sec"><p>April to June 2020, internship at NSRRC (TPS 45A1):</p><ul><li>Performed ARPES and XAS measurements under UHV conditions</li><li>Calibration, checking beam alignment and reference accuracy</li><li>Organized and processed data and sent them back to the project lead</li></ul></div>';
+    h='<h3>Experiment & Collaboration: measurement experience at a synchrotron facility</h3>'
+     +'<div class="sec"><h4>Experimental platform (click a diagram to see how it works)</h4><div class="itms eq">'+ITEMS.plat.map(function(_,i){return itemBtn('plat',i,1)}).join('')+'</div><p class="tnote" style="margin:6px 0 0">The light source provides X-rays of tunable energy; vacuum pumps keep the measurement chamber in ultra-high vacuum; samples enter through the load-lock and glovebox without contact with air and without breaking the chamber vacuum.</p></div>'
+     +'<div class="sec"><h4>Calibration and measurement (click a diagram to see how it works)</h4><p class="tnote">Energy calibration and data-quality checks are completed before measuring; only then are ARPES and XAS measurements carried out.</p><div class="itms eq calrow">'+itemBtn('cal',0,1)+'<span class="farr" aria-hidden="true">→</span>'+ITEMS.meas.map(function(_,i){return itemBtn('meas',i,1)}).join('')+'</div></div>'
+     +'<div class="sec"><p>April to June 2020, internship at beamline 45A1 of the Taiwan Photon Source (TPS), National Synchrotron Radiation Research Center (NSRRC):</p><ul><li>Performed ARPES and XAS measurements under UHV conditions</li><li>Calibration, checking beam alignment and reference accuracy</li><li>Organized and processed data and sent them back to the project lead</li></ul></div>';
   }
   show(h,k==='sim'?'--tcad':k==='data'?'--yed':'--ae',from);
   $('dlg').style.width='min(760px,100%)';
